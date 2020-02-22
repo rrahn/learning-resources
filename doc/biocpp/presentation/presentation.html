@@ -1,0 +1,212 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>BioC++ - solving daily bioinformatic tasks with C++ efficiently</title>
+
+		<link rel="stylesheet" href="reveal.js-3.9.2/css/reset.css">
+		<link rel="stylesheet" href="reveal.js-3.9.2/css/reveal.css">
+		<link rel="stylesheet" href="reveal.js-3.9.2/css/theme/white.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="reveal.js-3.9.2/lib/css/zenburn.css">
+
+<style>
+.rrahn {
+	background: url('img/rrahn.jpg') no-repeat left top;
+	background-size: 2.5em 2.5em;
+	height: 2.5em;
+	padding-left: 3em;
+}
+.marehr {
+	background: url('img/marehr.jpg') no-repeat left top;
+	background-size: 2.5em 2.5em;
+	height: 2.5em;
+	padding-left: 3em;
+}
+.slide-background::before {
+	content: "";
+	opacity: 1;
+	top: 0.3em;
+	left: 0;
+	height: 1.4em;
+	width: 100%;
+	position: absolute;
+	z-index: -1;
+
+	background-image: url(img/denbi.svg), url(img/elixir.svg), url(img/mpi.svg), url(img/fu.svg);
+	background-repeat: no-repeat, no-repeat, no-repeat;
+	background-position: 30% 0em, 10%, 60% 0em, 90% 0em;
+	background-size: auto 100%, auto 100%, auto 100%, auto 100%;
+}
+.backgrounds .slide-background:not(:first-child)::after {
+	content: "René Rahn, Marcel Ehrhardt";
+	font-size: 0.75em;
+	opacity: 1;
+	bottom: 0.3em;
+	left: 0.5em;
+	height: 1.4em;
+	width: 100%;
+	position: absolute;
+	z-index: -1;
+
+	/* background-image: url(img/denbi.svg), url(img/mpi.svg), url(img/fu.svg);
+	background-repeat: no-repeat, no-repeat, no-repeat;
+	background-position: 10% 0em, 50% 0em, 90% 0em;
+	background-size: auto 100%, auto 100%, auto 100%; */
+}
+</style>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js-3.9.2/css/print/pdf.css' : 'reveal.js-3.9.2/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+<section>
+<h1>BioC++</h1>
+<h3>solving daily bioinformatic tasks<br>with C++ efficiently</h3>
+
+<p class='rrahn' style='text-align: left'> René Rahn (Max Planck Institute for Molecular Genetics)</p>
+<p class='marehr' style='text-align: left'> Marcel Ehrhardt (Free University Berlin)</p>
+</section>
+
+<section>
+<h3>Schedule<small>*</small>:</h3>
+<ul>
+	<li><span style='font-size: 0.75em'>09:00 - 09:30</span> Setup</li>
+	<li><span style='font-size: 0.75em'>09:30 - 10:00</span> Introduction Talk</li>
+	<li><span style='font-size: 0.75em'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><em style='font-size: 0.75em'>10:30 - 10:45 Coffee-Break</em></li>
+	<li><span style='font-size: 0.75em'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><em style='font-size: 0.75em'>11:45 - 14:30 "short break"</em></li>
+	<li><span style='font-size: 0.75em'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li><span style='font-size: 0.75em'>15:50 - 16:00</span> Evaluation</li>
+	<li><span style='font-size: 0.75em'>16:00 - 16:30</span> Wrap-Up Talk</li>
+</ul>
+</section>
+
+<section>
+<h1>Setup</h1>
+</section>
+
+<section>
+<h6>Setup:</h6>
+<pre>Debian / Ubuntu:<code class="plaintext hljs">sudo apt-get install g++ cmake git</code></pre>
+<pre>Mac (XCode and Brew installed): <code class="plaintext hljs">brew install gcc</code></pre>
+<pre>Windows: ... ( ͡° ͜ʖ ͡°)</pre>
+<pre>Online Editor (50h/month for free, github or gitlab account):
+<code class="plaintext hljs" data-noescape><a href="https://www.gitpod.io/">https://www.gitpod.io/</a></code></pre>
+<pre><a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a> image:
+<code class="plaintext hljs" data-noescape>on USB flash drive or
+<a href="http://ftp.seqan.de/biostec-vm.img">http://ftp.seqan.de/biostec-vm.img</a></code></pre>
+</section>
+
+<section>
+<h6>Setup (I):</h6>
+
+Download course-material:
+<pre><code>git clone https://github.com/seqan/learning-resources
+git submodule init
+git submodule update</code></pre>
+
+Configure makescript:
+<pre><code>mkdir build && cd build
+cmake ..path..</code></pre>
+
+Build:
+<pre><code>make</code></pre>
+</section>
+
+<section>
+<h1>Introduction</h1>
+</section>
+
+<section>
+<h6>Introduction (I)</h6>
+
+<ul>
+<li>C++ einordnen R / Python / C++</li>
+<li>community driven</li>
+<li>ISO standard</li>
+<li>everyone can propose changes</li>
+<li>we have contributed as well</li>
+<li>static type system</li>
+<li>functional / procdural / oop (not done in the course)</li>
+<li>imperative lanuage: for, if, sequential execution of steps</li>
+<li>No garbage collection</li>
+<li>generic programming (duck typing)</li>
+<li>compilation</li>
+<li>libraries</li>
+<li>Not afraid of new (allocation)</li>
+</ul>
+</section>
+
+<section>
+<h6>FASTQ -> FASTA conversion</h6>
+
+We write an application that will look like this:
+<pre><code>$ ./fastq2fasta data/input.fq data/output.fa</code></pre>
+
+FASTQ:
+<pre><code>@SEQ_ID
+GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
++
+!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65
+</code></pre>
+
+FASTA:
+<pre><code>>SEQ_ID
+GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
+</code></pre>
+
+<ul>
+<!-- hello world -->
+<li>write hello world</li>
+<li>use std::string_view to read in argument</li>
+
+<!-- fastq -> fasta -->
+<li>show formatted file: fastq and fasta (how's the specification)</li>
+<li>include seqan3</li>
+<li>make file_input to file_output assignment</li>
+</ul>
+</section>
+
+<section>
+<h6>Container / Iterators / Tuples</h6>
+
+<ul>
+<li>write hello world</li>
+</ul>
+</section>
+
+			</div>
+		</div>
+
+		<script src="reveal.js-3.9.2/js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				hash: true,
+				dependencies: [
+					{ src: 'reveal.js-3.9.2/plugin/markdown/marked.js' },
+					{ src: 'reveal.js-3.9.2/plugin/markdown/markdown.js' },
+					{ src: 'reveal.js-3.9.2/plugin/highlight/highlight.js' },
+					{ src: 'reveal.js-3.9.2/plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
