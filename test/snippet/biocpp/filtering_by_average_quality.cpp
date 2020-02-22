@@ -1,96 +1,57 @@
+#include <cmath>
 #include <iostream>
 #include <numeric>
+#include <string_view>
+#include <vector>
 
-#include <seqan3/io/sequence_file/input.hpp>
-#include <seqan3/core/concept/core_language.hpp>
-#include <seqan3/core/debug_stream.hpp>
-#include <seqan3/core/detail/strong_type.hpp>
+#include <seqan3/alphabet/quality/all.hpp>
+#include <seqan3/io/sequence_file/all.hpp>
 #include <seqan3/range/views/to_rank.hpp>
-#include <seqan3/range/views/single_pass_input.hpp>
-#include <seqan3/range/views/zip.hpp>
 #include <seqan3/std/algorithm>
-#include <seqan3/std/charconv>
 #include <seqan3/std/ranges>
 
-template <std::ranges::input_range range_t>
-    requires seqan3::arithmetic<std::ranges::range_value_t<range_t>>
-// Concept: forwarding reference.
-// Concept: auto return type
-// Concept: type_traits
-// Concept: range algorithms
-// Concept: trailing return type
-auto average(range_t && rng) -> std::ranges::range_value_t<range_t>
+template <typename range_t>
+int32_t sum(range_t const & data)
 {
-    using arithmetic_t = std::ranges::range_value_t<range_t>;
-    using index_sum_t = std::pair<arithmetic_t, arithmetic_t>;
-
-    auto indexed_range = seqan3::views::zip(std::views::iota(1), rng) | std::views::common;
-    index_sum_t result = std::accumulate(std::ranges::begin(indexed_range),
-                                         std::ranges::end(indexed_range),
-                                         index_sum_t{},
-                                         [] (auto && initial, auto && current_value) -> index_sum_t
-                                         {
-                                             return {current_value.first, initial.second + current_value.second};
-                                         });
-    return result.second / result.first;
+    return std::accumulate(std::ranges::begin(data), std::ranges::end(data), 0);  // Use algorithms
 }
 
-// Concept: range concept
-// Concept: requires clause
-// Concept: arithmetic
-template <std::ranges::forward_range range_t>
-    requires seqan3::arithmetic<std::ranges::range_value_t<range_t>>
-// Concept: forwarding reference.
-// Concept: auto return type
-// Concept: type_traits
-// Concept: range algorithms
-// Concept: trailing return type
-auto average(range_t && rng) -> std::ranges::range_value_t<range_t>
+int32_t convert_to_sanger_quality(double probability)
 {
-
-    using arithmetic_t = std::ranges::range_value_t<range_t>;
-    auto common_range = rng | std::views::common;
-    return std::accumulate(std::ranges::begin(common_range),
-                           std::ranges::end(common_range),
-                           arithmetic_t{}) /
-           std::ranges::distance(rng);
+    return std::lround(-10 * std::log10(1.0 - probability));
 }
 
-// Concept: Program entry
-int main(int const argc, char const * argv[])
+using character_string = const char *;
+
+int main(int const , character_string argv[])
 {
-    // Concept: exception
-    if (argc < 3)
-        throw std::invalid_argument{"Not enough arguments specified."};
+    std::string_view fastq_input_path{argv[1]};
 
-    // Concept: strong type
-    int32_t min_average{};
-    // Concept: string_view
-    std::string_view user_average{argv[2]};
-    std::cout << "user value: " << user_average << "\n";
+    std::cout << "Please specify the minimum base quality as a value between 0.00 and 1.00\n";
+    double minimum_base_quality{};
+    std::cin >> minimum_base_quality;
 
-    // Concept: Char conversion from C++17
-    // Concept: error codes from C++11
-    if (auto [p, ec] = std::from_chars(user_average.begin(), user_average.end(), min_average); ec != std::errc{})
-        throw std::make_error_code(ec);
+    seqan3::phred42 minimum_phred_quality{};
+    minimum_phred_quality.assign_rank(convert_to_sanger_quality(minimum_base_quality));
 
-    // Concept: Sequence file.
-    seqan3::sequence_file_input input{argv[1]};
+    std::cout << "The corresponding phred score is: " << static_cast<int32_t>(minimum_phred_quality.to_rank()) << "\n";
+    std::cout << "The corresponding ASCII mapping is: " << minimum_phred_quality.to_char() << "\n";
 
-    // Concept: lambda-function -> invocable types C++11
-    auto by_average_quality = [min_average] (auto const & fastq_record)
+    seqan3::sequence_file_input seq_file_in{fastq_input_path};
+    seqan3::sequence_file_output seq_file_out{std::cout, seqan3::format_fasta{}};
+
+    // Find average quality.
+    auto by_average_quality = [minimum_phred_quality] (auto const & fastq_record) // ["ACGTGAATGAC...", "id", "==+!456AA..."]
     {
-        return average(seqan3::get<seqan3::field::qual>(fastq_record) | seqan3::views::to_rank | seqan3::views::single_pass_input) > min_average;
+        auto quality_sequence = seqan3::get<seqan3::field::qual>(fastq_record); // ["==+!456AA..."]
+        auto quality_rank_sequence = quality_sequence | seqan3::views::to_rank; // ["56,56,34, 33, ..."]
+        auto rank_sum = sum(quality_rank_sequence);
+        auto average_rank = rank_sum / std::ranges::distance(quality_sequence);
+        return seqan3::phred42{}.assign_rank(average_rank) >= minimum_phred_quality;
     };
 
-    // Concept: range based for-loop
-    // Concept: filter view
-    for (auto const & [seq, id, qual] : input | std::views::filter(by_average_quality))
-    {
-        // Concept debug stream
-        seqan3::debug_stream << "\n@" << id << "\n";
-        seqan3::debug_stream << seq << "\n";
-        seqan3::debug_stream << "+" << "\n";
-        seqan3::debug_stream << qual;
-    }
+    // Only print sequences with average quality filter.
+    seq_file_out = seq_file_in | std::views::filter(by_average_quality); // untie elements of a tuple
+
+    return EXIT_SUCCESS;
 }
