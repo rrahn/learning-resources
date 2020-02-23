@@ -29,7 +29,7 @@ int32_t sum(range_t && data)
     return std::accumulate(std::ranges::begin(common_range), std::ranges::end(common_range), int32_t{});
 }
 
-auto read_user_base_quality()
+seqan3::phred42 read_user_base_quality()
 {
     std::cout << "Please specify the minimum base quality as a probability between 0 and 41\n";
     int32_t user_base_quality{};
@@ -57,12 +57,14 @@ int main(int const , character_string argv[])
     // seqan3::sequence_file_output seq_file_out{std::cout, seqan3::format_fasta{}};
 
     // Find average quality.
-    auto by_average_quality = [minimum_phred_quality] (auto const & fastq_record) // ["ACGTGAATGAC...", "id", "==+!456AA..."]
+    auto by_average_quality = [minimum_phred_quality] (auto && fastq_record) // ["ACGTGAATGAC...", "id", "==+!456AA..."]
     {
-        auto quality_sequence = seqan3::get<seqan3::field::qual>(fastq_record); // ["==+!456AA..."]
+        auto && quality_sequence = seqan3::get<seqan3::field::qual>(fastq_record); // ["==+!456AA..."]
         auto quality_rank_sequence = quality_sequence | seqan3::views::to_rank; // ["56,56,34, 33, ..."]
-        auto rank_sum = sum(quality_rank_sequence);
-        auto average_rank = rank_sum / std::ranges::distance(quality_sequence);
+        int32_t rank_sum = sum(quality_rank_sequence);
+        int32_t average_rank = rank_sum / std::ranges::distance(quality_sequence);
+
+        assert(average_rank < seqan3::alphabet_size<seqan3::phred42>);
         return seqan3::phred42{}.assign_rank(average_rank) >= minimum_phred_quality;
     };
 
