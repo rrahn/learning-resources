@@ -8,7 +8,7 @@ using character_string = char const *;
 
 int main(int const argc, character_string argv[])
 {
-    if (argc < 1)
+    if (argc < 2)
         return EXIT_FAILURE;
 
     std::string_view fastq_input_path{argv[1]};
