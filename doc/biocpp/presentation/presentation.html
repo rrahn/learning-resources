@@ -126,20 +126,39 @@
 <a href="http://ftp.seqan.de/biostec-vm.img">http://ftp.seqan.de/biostec-vm.img</a></code></pre>
 </section>
 
-<section>
-<h6>Setup (II):</h6>
+<section data-markdown>
+<textarea data-template>
+###### Setup (II):
 
-<p class="fragment">Download course-material:</p>
-<pre class="fragment"><code>git clone https://github.com/seqan/learning-resources
-git submodule init
-git submodule update</code></pre>
+Download course-material:
+<!-- .element: class="fragment" -->
 
-<p class="fragment">Configure makescript:</p>
-<pre class="fragment"><code>mkdir build && cd build
-cmake ..path..</code></pre>
+```
+git clone https://github.com/rrahn/learning-resources
 
-<p class="fragment">Build:</p>
-<pre class="fragment"><code>make</code></pre>
+cd learning-resources
+
+git submodule update --init --recursive
+```
+<!-- .element: class="fragment" -->
+
+Configure makescript:
+<!-- .element: class="fragment" -->
+
+```
+mkdir build && cd build
+cmake ../test/snippet
+```
+<!-- .element: class="fragment" -->
+
+Build:
+<!-- .element: class="fragment" -->
+
+```
+make -j 4
+```
+<!-- .element: class="fragment" -->
+</textarea>
 </section>
 
 <section>
