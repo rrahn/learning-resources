@@ -57,6 +57,12 @@
     background-position: 10% 0em, 50% 0em, 90% 0em;
     background-size: auto 100%, auto 100%, auto 100%; */
 }
+.live-coding
+{
+    background: url(img/source_code.svg) no-repeat center;
+    background-size: 8em;
+    height: 6em;
+}​
 .time-slot
 {
 	font-size: 0.75em;
@@ -414,9 +420,51 @@ void print(std::ranges::input_range auto && obj)
 
 <section>
     <div align="left"><h4>C++-Evolution</h4></div>
-
+    <img src="img/c++_standardisation.jpg" style="height: 450px;">
+    https://isocpp.org/std/status; accessed 23.02.2020
+<!-- Notes
+    In this course we will use modern C++ features available with C++20.
+    We will incrementally build up a use case and learn the corresponding principles and how to use them
+    to write efficient and expressive code.
+-->
 </section>
 
+<section>
+    <h3>Alright, alright, that looks cool and I am hooked to learn more!
+        But why should I care when I can do all this with Python/Java/C#?</h6>
+<!-- Notes
+    Performance.
+-->
+</section>
+
+<section>
+    <div align="left"><h4>Performance</h4></div>
+    <ul>
+        <li>Data is growing and growing</li>
+        <li>The more information I have the more accurate could be my analysis</li>
+        <li>Shift from single-node to cluster based computation to hetereogeneous computing</li>
+        <li>TODO...</li>
+    </ul>
+<!-- Notes
+    Performance.
+-->
+</section>
+
+<section>
+    <div align="left"><h4>What will be covered in today's course</h4></div>
+    <ul>
+        <li>simple C++ command line application</li>
+        <li>Standard Template Library</li>
+        <li>SeqAn - an efficient and modern C++-library for sequence analysis</li>
+        <li>understanding and using <tt>auto</tt> in c++</li>
+        <li>understanding and using lambdas in C++</li>
+        <li>understanding and using ranges in C++</li>
+        <li>understanding and using concepts in C++</li>
+    </ul>
+<!-- Notes
+
+-->
+</section>
 
 <section>
 <h3>Schedule<small>*</small>:</h3>
@@ -500,6 +548,86 @@ $ ./fastq2fasta data/input.fq data/output.fa
 </section>
 
 <section>
+    <p class=live-coding>Live Demo</p>
+    <!-- Notes:
+        Start writing a simple program with hello world.
+        Learning goals:
+            * How to use Standard library functionality
+            * What does #include mean
+            * How to use standard library documentation: cppreference.com -> shared document.
+            * Entry point of any program -> the main
+            * String literal -> has to be the entry point of any program that captures command line arguments
+            * Convert to C++.
+            * Formatted files from SeqAn
+            * Writing a file to the standard output.
+    -->
+</section>
+
+<section>
+Have a look at the main:
+<pre><code>
+int main(int const argc, char const * argv[])
+{ ... }
+</code></pre>
+    <ul>
+        <li>argc: The number of arguments passed to the program</li>
+        <li>argv: The arguments passed to the program as an array over c-style strings</li>
+        <li>program name is included and is accessed via argv[0]</li>
+    </ul>
+    <!-- Notes:
+        argc >= 1
+        |argv| = argc + 1
+        argv[argc] == std::nullptr
+        argv[0] -> program name or std::nullptr if not supported by environment
+     -->
+    <!-- Task:
+        The following program: ./foo var1 var2 var3
+        What is the size of argc?
+        a) 3
+        b) 4
+        c) 5
+        d) 1
+    -->
+</section>
+
+<!-- In example of main reading command line arguments
+    Use std::string_view to capture arguments.
+    Rational:
+        * Give them a name
+        * Avoid working with pointer types (c-style string)
+        * Avoid allocating memory
+        * Avoid copying data -> non-owning semantics
+ -->
+
+<section>
+Open files from path.
+<pre><code>
+#include &lt;seqan3/io/sequence_file/all.hpp&gt;
+
+seqan3::sequence_file_input in{"path/to/my/file.fa"};
+seqan3::sequence_file_input ingz{"path/to/my/file.fa.gz"};
+</code></pre>
+    <ul>
+        <li>automatic format detection</li>
+        <li>transparent decompression</li>
+        <li>secure parsing</li>
+    </ul>
+</section>
+
+<section>
+Open files from stream.
+<pre><code>
+#include &lt;seqan3/io/sequence_file/all.hpp&gt;
+
+seqan3::sequence_file_output out{std::cout,
+                                 seqan3::format_fasta{}};
+</code></pre>
+    <ul>
+        <li>format must be specified explicitly</li>
+    </ul>
+</section>
+
+<section>
 <h3>Schedule<small>*</small>:</h3>
 <ul>
 	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
@@ -515,8 +643,39 @@ $ ./fastq2fasta data/input.fq data/output.fa
 </section>
 
 <section>
-<h6>Container / Iterators / Tuples</h6>
+    <h6>Container / Iterators / Tuples</h6>
+    <!-- Notes:
+        * Containers in C++
+        * What is a container?
+        * How to access a container?
+        * Abstraction of containers as iterables. -> Fundamental principles of generic programming.
+            * begin/end
+            * iterator
+            * algorithms on iterator
+        *
+        * collections of different types -> tuple
+        * access of tuple
+    -->
+    <ul>
+    <li>write hello world</li>
+    </ul>
+    </section>
 
+<section>
+<h6>Container / Iterators / Tuples</h6>
+<!-- Notes:
+    * String literal -> has to be the entry point of any program that captures
+    * Containers in C++
+    * What is a container?
+    * How to access a container?
+    * Abstraction of containers as iterables. -> Fundamental principles of generic programming.
+        * begin/end
+        * iterator
+        * algorithms on iterator
+    *
+    * collections of different types -> tuple
+    * access of tuple
+-->
 <ul>
 <li>write hello world</li>
 </ul>
