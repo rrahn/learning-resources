@@ -57,6 +57,10 @@
 	background-position: 10% 0em, 50% 0em, 90% 0em;
 	background-size: auto 100%, auto 100%, auto 100%; */
 }
+.time-slot
+{
+	font-size: 0.75em;
+}
 </style>
 
 		<!-- Printing and PDF exports -->
@@ -83,73 +87,73 @@
 <section>
 <h3>Schedule<small>*</small>:</h3>
 <ul>
-	<li><span style='font-size: 0.75em'>09:00 - 09:30</span> Setup</li>
-	<li><span style='font-size: 0.75em'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span style='font-size: 0.75em'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
-	<li><em style='font-size: 0.75em'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span style='font-size: 0.75em'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
-	<li><em style='font-size: 0.75em'>11:45 - 14:30 "short break"</em></li>
-	<li><span style='font-size: 0.75em'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
-	<li><span style='font-size: 0.75em'>15:50 - 16:00</span> Evaluation</li>
-	<li><span style='font-size: 0.75em'>16:00 - 16:30</span> Wrap-Up Talk</li>
+	<li class="fragment"><span class='time-slot'>09:00 - 09:30</span> Setup</li>
+	<li class="fragment"><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
+	<li class="fragment"><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li class="fragment"><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
+	<li class="fragment"><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li class="fragment"><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
+	<li class="fragment"><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li class="fragment"><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
+	<li class="fragment"><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
 </section>
 
 <section>
 <h3>Schedule<small>*</small>:</h3>
 <ul>
-	<li><span style='font-size: 0.75em'>09:00 - 09:30</span> <b>Setup</b></li>
-	<li><span style='font-size: 0.75em'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span style='font-size: 0.75em'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
-	<li><em style='font-size: 0.75em'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span style='font-size: 0.75em'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
-	<li><em style='font-size: 0.75em'>11:45 - 14:30 "short break"</em></li>
-	<li><span style='font-size: 0.75em'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
-	<li><span style='font-size: 0.75em'>15:50 - 16:00</span> Evaluation</li>
-	<li><span style='font-size: 0.75em'>16:00 - 16:30</span> Wrap-Up Talk</li>
+	<li class="fragment highlight-blue grow"><span class='time-slot'>09:00 - 09:30</span> Setup</li>
+	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
+	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
 </section>
 
 <section>
-<h6>Setup:</h6>
-<pre>Debian / Ubuntu:<code class="plaintext hljs">sudo apt-get install g++ cmake git</code></pre>
-<pre>Mac (XCode and Brew installed): <code class="plaintext hljs">brew install gcc</code></pre>
-<pre>Windows: ... ( ͡° ͜ʖ ͡°)</pre>
-<pre>Online Editor (50h/month for free, github or gitlab account):
+<h6>Setup (I):</h6>
+<pre class="fragment">Debian / Ubuntu:<code class="plaintext hljs">sudo apt-get install g++ cmake git</code></pre>
+<pre class="fragment">Mac (XCode and Brew installed): <code class="plaintext hljs">brew install gcc</code></pre>
+<pre class="fragment">Windows: ... ( ͡° ͜ʖ ͡°)</pre>
+<pre class="fragment">Online Editor (50h/month for free, github or gitlab account):
 <code class="plaintext hljs" data-noescape><a href="https://www.gitpod.io/">https://www.gitpod.io/</a></code></pre>
-<pre><a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a> image:
+<pre class="fragment"><a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a> image:
 <code class="plaintext hljs" data-noescape>on USB flash drive or
 <a href="http://ftp.seqan.de/biostec-vm.img">http://ftp.seqan.de/biostec-vm.img</a></code></pre>
 </section>
 
 <section>
-<h6>Setup (I):</h6>
+<h6>Setup (II):</h6>
 
-Download course-material:
-<pre><code>git clone https://github.com/seqan/learning-resources
+<p class="fragment">Download course-material:</p>
+<pre class="fragment"><code>git clone https://github.com/seqan/learning-resources
 git submodule init
 git submodule update</code></pre>
 
-Configure makescript:
-<pre><code>mkdir build && cd build
+<p class="fragment">Configure makescript:</p>
+<pre class="fragment"><code>mkdir build && cd build
 cmake ..path..</code></pre>
 
-Build:
-<pre><code>make</code></pre>
+<p class="fragment">Build:</p>
+<pre class="fragment"><code>make</code></pre>
 </section>
 
 <section>
 <h3>Schedule<small>*</small>:</h3>
 <ul>
-	<li><span style='font-size: 0.75em'>09:00 - 09:30</span> Setup</li>
-	<li><span style='font-size: 0.75em'>09:30 - 10:00</span> <b>Introduction Talk</b></li>
-	<li><span style='font-size: 0.75em'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
-	<li><em style='font-size: 0.75em'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span style='font-size: 0.75em'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
-	<li><em style='font-size: 0.75em'>11:45 - 14:30 "short break"</em></li>
-	<li><span style='font-size: 0.75em'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
-	<li><span style='font-size: 0.75em'>15:50 - 16:00</span> Evaluation</li>
-	<li><span style='font-size: 0.75em'>16:00 - 16:30</span> Wrap-Up Talk</li>
+	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
+	<li class="fragment highlight-blue grow"><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
+	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
 </section>
 
@@ -176,60 +180,96 @@ Build:
 <section>
 <h3>Schedule<small>*</small>:</h3>
 <ul>
-	<li><span style='font-size: 0.75em'>09:00 - 09:30</span> Setup</li>
-	<li><span style='font-size: 0.75em'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span style='font-size: 0.75em'>10:00 - 10:30</span> <b>FASTQ -> FASTA conversion</b></li>
-	<li><em style='font-size: 0.75em'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span style='font-size: 0.75em'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
-	<li><em style='font-size: 0.75em'>11:45 - 14:30 "short break"</em></li>
-	<li><span style='font-size: 0.75em'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
-	<li><span style='font-size: 0.75em'>15:50 - 16:00</span> Evaluation</li>
-	<li><span style='font-size: 0.75em'>16:00 - 16:30</span> Wrap-Up Talk</li>
+	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
+	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
+	<li class="fragment highlight-blue grow"><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
+	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
 </section>
 
-<section>
-<h6>FASTQ -> FASTA conversion</h6>
+<section data-markdown>
+<textarea data-template>
+###### FASTQ -> FASTA conversion (I)
 
 We write an application that will look like this:
-<pre><code>$ ./fastq2fasta data/input.fq data/output.fa</code></pre>
+<!-- .element: class="fragment" -->
 
-FASTQ (data/input.fq):
-<pre><code>@SEQ_ID
-GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
-+
-!''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65
-</code></pre>
+```
+$ ./fastq2fasta data/input.fq data/output.fa
+```
+<!-- .element: class="fragment" -->
+</textarea>
+</section>
 
-FASTA (data/output.fa):
-<pre><code>>SEQ_ID
-GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
-</code></pre>
+<section data-markdown>
+<script type="text/template">
+###### FASTQ -> FASTA conversion (II)
 
-<ul>
-<!-- hello world -->
-<li>write hello world</li>
-<li>use std::string_view to read in argument</li>
+How does a FASTQ and FASTA file look like?
+<!-- .element: class="fragment" -->
 
-<!-- fastq -> fasta -->
-<li>show formatted file: fastq and fasta (how's the specification)</li>
-<li>include seqan3</li>
-<li>make file_input to file_output assignment</li>
-</ul>
+* <!-- .element: class="fragment" -->
+  FASTQ (`data/input.fq`):
+
+  ```cpp
+  @SEQ_ID
+  GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
+  +
+  !''*((((***+))%%%++)(%%%%).1***-+*''))**55CCF>>>>>>CCCCCCC65
+  ```
+  <!-- .element: class="fragment" -->
+
+* <!-- .element: class="fragment" -->
+  FASTA (`data/output.fa`):
+
+  ```cpp
+  >SEQ_ID
+  GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
+  ```
+  <!-- .element: class="fragment" -->
+</script>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+###### FASTQ -> FASTA conversion (III)</h6>
+
+```
+$ ./fastq2fasta data/input.fq data/output.fa
+```
+<!-- .element: class="fragment" -->
+
+### How do we write this application?
+<!-- .element: class="fragment" -->
+
+ * <!-- .element: class="fragment" -->
+   Start with "hello world" programm. <!-- hello world -->
+ * <!-- .element: class="fragment" -->
+   Read and use command-line arguments.
+ * <!-- .element: class="fragment" -->
+   Use a library to read in a **fastq** file. <!-- fastq -> fasta -->
+ * <!-- .element: class="fragment" -->
+   Use a library to write out a **fasta** file.
+</script>
 </section>
 
 <section>
 <h3>Schedule<small>*</small>:</h3>
 <ul>
-	<li><span style='font-size: 0.75em'>09:00 - 09:30</span> Setup</li>
-	<li><span style='font-size: 0.75em'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span style='font-size: 0.75em'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
-	<li><em style='font-size: 0.75em'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span style='font-size: 0.75em'>10:45 - 11:45</span> <b>Container / Iterators / Tuples</b></li>
-	<li><em style='font-size: 0.75em'>11:45 - 14:30 "short break"</em></li>
-	<li><span style='font-size: 0.75em'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
-	<li><span style='font-size: 0.75em'>15:50 - 16:00</span> Evaluation</li>
-	<li><span style='font-size: 0.75em'>16:00 - 16:30</span> Wrap-Up Talk</li>
+	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
+	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
+	<li class="fragment highlight-blue grow"><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
+	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
 </section>
 
@@ -244,45 +284,45 @@ GATTTGGGGTTCAAAGCAGTATCGATCAAATAGTAAATCCATTTGTTCAACTCACAGTTT
 <section>
 <h3>Schedule<small>*</small>:</h3>
 <ul>
-	<li><span style='font-size: 0.75em'>09:00 - 09:30</span> Setup</li>
-	<li><span style='font-size: 0.75em'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span style='font-size: 0.75em'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
-	<li><em style='font-size: 0.75em'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span style='font-size: 0.75em'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
-	<li><em style='font-size: 0.75em'>11:45 - 14:30 "short break"</em></li>
-	<li><span style='font-size: 0.75em'>14:30 - 15:50</span> <b>Paired-End filter (Ranges / Concepts)</b></li>
-	<li><span style='font-size: 0.75em'>15:50 - 16:00</span> Evaluation</li>
-	<li><span style='font-size: 0.75em'>16:00 - 16:30</span> Wrap-Up Talk</li>
+	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
+	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
+	<li class="fragment highlight-blue grow"><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
+	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
 </section>
 
 <section>
 <h3>Schedule<small>*</small>:</h3>
 <ul>
-	<li><span style='font-size: 0.75em'>09:00 - 09:30</span> Setup</li>
-	<li><span style='font-size: 0.75em'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span style='font-size: 0.75em'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
-	<li><em style='font-size: 0.75em'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span style='font-size: 0.75em'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
-	<li><em style='font-size: 0.75em'>11:45 - 14:30 "short break"</em></li>
-	<li><span style='font-size: 0.75em'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
-	<li><span style='font-size: 0.75em'>15:50 - 16:00</span> <b>Evaluation</b></li>
-	<li><span style='font-size: 0.75em'>16:00 - 16:30</span> Wrap-Up Talk</li>
+	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
+	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li class="fragment highlight-blue grow"><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
+	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
 </section>
 
 <section>
 <h3>Schedule<small>*</small>:</h3>
 <ul>
-	<li><span style='font-size: 0.75em'>09:00 - 09:30</span> Setup</li>
-	<li><span style='font-size: 0.75em'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span style='font-size: 0.75em'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
-	<li><em style='font-size: 0.75em'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span style='font-size: 0.75em'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
-	<li><em style='font-size: 0.75em'>11:45 - 14:30 "short break"</em></li>
-	<li><span style='font-size: 0.75em'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
-	<li><span style='font-size: 0.75em'>15:50 - 16:00</span> Evaluation</li>
-	<li><span style='font-size: 0.75em'>16:00 - 16:30</span> <b>Wrap-Up Talk</b></li>
+	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
+	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
+	<li class="fragment highlight-blue grow"><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
 </section>
 
