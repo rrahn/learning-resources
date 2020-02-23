@@ -1,61 +1,61 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>BioC++ - solving daily bioinformatic tasks with C++ efficiently</title>
+        <title>BioC++ - solving daily bioinformatic tasks with C++ efficiently</title>
 
-		<link rel="stylesheet" href="reveal.js-3.9.2/css/reset.css">
-		<link rel="stylesheet" href="reveal.js-3.9.2/css/reveal.css">
-		<link rel="stylesheet" href="reveal.js-3.9.2/css/theme/white.css">
+        <link rel="stylesheet" href="reveal.js-3.9.2/css/reset.css">
+        <link rel="stylesheet" href="reveal.js-3.9.2/css/reveal.css">
+        <link rel="stylesheet" href="reveal.js-3.9.2/css/theme/white.css">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="reveal.js-3.9.2/lib/css/zenburn.css">
+        <!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="reveal.js-3.9.2/lib/css/zenburn.css">
 
 <style>
 .rrahn {
-	background: url('img/rrahn.jpg') no-repeat left top;
-	background-size: 2.5em 2.5em;
-	height: 2.5em;
-	padding-left: 3em;
+    background: url('img/rrahn.jpg') no-repeat left top;
+    background-size: 2.5em 2.5em;
+    height: 2.5em;
+    padding-left: 3em;
 }
 .marehr {
-	background: url('img/marehr.jpg') no-repeat left top;
-	background-size: 2.5em 2.5em;
-	height: 2.5em;
-	padding-left: 3em;
+    background: url('img/marehr.jpg') no-repeat left top;
+    background-size: 2.5em 2.5em;
+    height: 2.5em;
+    padding-left: 3em;
 }
 .slide-background::before {
-	content: "";
-	opacity: 1;
-	top: 0.3em;
-	left: 0;
-	height: 1.4em;
-	width: 100%;
-	position: absolute;
-	z-index: -1;
+    content: "";
+    opacity: 1;
+    top: 0.3em;
+    left: 0;
+    height: 1.4em;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
 
-	background-image: url(img/denbi.svg), url(img/elixir.svg), url(img/mpi.svg), url(img/fu.svg);
-	background-repeat: no-repeat, no-repeat, no-repeat;
-	background-position: 30% 0em, 10%, 60% 0em, 90% 0em;
-	background-size: auto 100%, auto 100%, auto 100%, auto 100%;
+    background-image: url(img/denbi.svg), url(img/elixir.svg), url(img/mpi.svg), url(img/fu.svg);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: 30% 0em, 10%, 60% 0em, 90% 0em;
+    background-size: auto 100%, auto 100%, auto 100%, auto 100%;
 }
 .backgrounds .slide-background:not(:first-child)::after {
-	content: "René Rahn, Marcel Ehrhardt";
-	font-size: 0.75em;
-	opacity: 1;
-	bottom: 0.3em;
-	left: 0.5em;
-	height: 1.4em;
-	width: 100%;
-	position: absolute;
-	z-index: -1;
+    content: "René Rahn, Marcel Ehrhardt";
+    font-size: 0.75em;
+    opacity: 1;
+    bottom: 0.3em;
+    left: 0.5em;
+    height: 1.4em;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
 
-	/* background-image: url(img/denbi.svg), url(img/mpi.svg), url(img/fu.svg);
-	background-repeat: no-repeat, no-repeat, no-repeat;
-	background-position: 10% 0em, 50% 0em, 90% 0em;
-	background-size: auto 100%, auto 100%, auto 100%; */
+    /* background-image: url(img/denbi.svg), url(img/mpi.svg), url(img/fu.svg);
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-position: 10% 0em, 50% 0em, 90% 0em;
+    background-size: auto 100%, auto 100%, auto 100%; */
 }
 .time-slot
 {
@@ -63,18 +63,18 @@
 }
 </style>
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js-3.9.2/css/print/pdf.css' : 'reveal.js-3.9.2/css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js-3.9.2/css/print/pdf.css' : 'reveal.js-3.9.2/css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
 
 <section>
 <h1>BioC++</h1>
@@ -195,6 +195,228 @@ make -j 4
 <li>Not afraid of new (allocation)</li>
 </ul>
 </section>
+
+<section>
+    <h3>I come from C/Java/Python/C#... How is C++ different?</h6>
+</section>
+
+<section>
+    <div align="left"><h4>C++ is ...</h4></div>
+        <ul>
+        <li>object-oriented (Java, Python, C#)</li>
+        <li>structured (Java, Python, C#, C)</li>
+        <li>imperative (Java, Python, C#, C)</li>
+        <li>procedural (Python, C)</li>
+        <li>functional (Python, C, C#)</li>
+        <li>generic (Java, Python, C#, C)</li>
+        </ul>
+</section>
+
+<section>
+    <div align="left"><h4>Object-oriented</h4></div>
+    <ul>
+        <li>Models the world as objects</li>
+        <li>Objects provide interface</li>
+        <li>Objects can interact with each other</li>
+        <li>Design patterns "Gang of Four" to reduce complexity</li>
+    </ul>
+</section>
+
+<section>
+    <div align="left"><h4>Structured & Imperative</h4></div>
+    <ul>
+        <li>Code executed in sequential order (assuming no concurrency)</li>
+        <li>Control flow through ...</li>
+        <ul>
+            <li>repetition: for, while, do-while, etc.</li>
+            <li>branching: if, else</li>
+            <li>multi-branching: switch, if else</li>
+        </ul>
+        <li>Stateful algorithms</li>
+    </ul>
+</section>
+
+<section>
+    <div align="left"><h4>Procedural & Functional</h4></div>
+    <ul>
+        <li>Breaking up monolithic code in functions</li>
+        <li>Opposed to object-oriented programming</li>
+        <li>Recursive</li>
+        <li>No shared state/immutable</li>
+        <li>Lambda-calculus</li>
+    </ul>
+</section>
+
+<section>
+    <h3>Ok that's nice. But I learned that memory handling is difficult in C++.</h6>
+</section>
+
+<section>
+    <div align="left"><h4>Is that so?</h4></div>
+<pre><code>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main()
+{
+    std::vector char_vector{'H', 'e', 'l', 'l', 'o'};
+    for (char c : char_vector)
+        std::cout << c;
+
+    std::cout << "\n";
+    return 0;
+}
+</code></pre>
+<!-- Notes
+    Here 5 characters will be allocated and auto-magically will be deallocated.
+    But where does it happen?
+    We don't need to worry. The vector handles this for us.
+-->
+</section>
+
+<section>
+    <div align="left"><h4>Notes to Garbage Collection</h4></div>
+    <ul>
+        <li>C++ has no (language-builtin) garbage collection, but RAII</li>
+        <li>Java and C# support it. Allocate objects with <tt>new</tt></li>
+        <li>Python uses reference counting but allows some sort of manual control</li>
+        <li>C, ... yeah well, that is another story</li>
+    </ul>
+    <div align="left"><h4>Control over memory is a key for performance!</h4></div>
+</section>
+
+<section>
+    <h3>But there are so many cool libraries that I can use with the other programming languages?</h6>
+<!-- Notes
+
+-->
+</section>
+
+<section>
+    <div align="left"><h4>C++ is a community driven language</h4></div>
+    <ul>
+        <li>C++ supports usage of third party libraries</li>
+        <li>Standard Template Library (STL) shipped with C++ compiler</li>
+        <li>Anyone can propose language or STL features</li>
+        <li>ISO committee manages standardization</li>
+    </ul>
+<!-- Notes
+    If something is not supported there is likely to be a library that does it already.
+    STL is rich on features.
+    We actually have submitted two small papers, that were accepted for C++20.
+    The language and the library will be standardized by an ISO committee.
+-->
+</section>
+
+<section>
+    <h3>Mhmm, I see your point. But especially Python makes it so easy to work with dynamic types.</h6>
+<!-- Notes
+    Good point.
+    What I will not do here is to start a fundamental discussion about what would be the better option.
+    At the end this is mainly a subjective matter and each approach has its pros and cons.
+    But for the sake of completion let us compare the differences.
+-->
+</section>
+
+<section>
+    <div align="left"><h4>Dynamic- vs static-typed languages</h4></div>
+    <ul>
+        <li>Dynamic-typed: The type is determined at run time by the interpreter.</li>
+        <li>Static-typed: The type is determined at compile time by the compiler.</li>
+        <li>C++ allows compile time type-deduction.</li>
+    </ul>
+<!-- Notes
+    Let me in the following show you on some very simple code example the evolution of C++ regarding type deduction.
+-->
+</section>
+
+<section>
+<pre><code>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+int main()
+{
+    std::vector char_vector{'H', 'e', 'l', 'l', 'o'};
+    for (char c : char_vector)
+        std::cout << c;
+
+    std::cout << "\n";
+    return 0;
+}
+</code></pre>
+<!-- Notes
+    Remember our snippet from before. Here we created a vector of char and wanted to print the content.
+    Now we want to extract the element-wise printing of the vector into a separate function.
+-->
+</section>
+
+<section>
+<pre><code>
+#include &lt;iostream&gt;
+#include &lt;vector&gt;
+
+void print(std::vector&lt;char&gt; const & obj)
+{
+    for (char c : obj)
+        std::cout << c;
+
+    std::cout << "\n";
+}
+</code></pre>
+<!-- Notes
+    This print function can now be used in the main and from other scopes to print a std::vector<char>.
+    This is, however, cumbersome if we need to provide a print function for every type.
+-->
+</section>
+
+<section>
+<pre><code>
+#include &lt;iostream&gt;
+
+template &lt;typename object_t&gt;
+void print(object_t && obj)
+{
+    for (auto c : obj)
+        std::cout << c;
+
+    std::cout << "\n";
+}
+</code></pre>
+<!-- Notes
+    Oh great! Now this code does work for any type.
+    But, wait! What when we pass something that cannot be iterated?
+-->
+</section>
+
+<section>
+<pre><code>
+#include &lt;iostream&gt;
+#include &lt;ranges&gt;
+
+void print(std::ranges::input_range auto && obj)
+{
+    for (printable auto && c : obj)
+        std::cout << c;
+
+    std::cout << "\n";
+};
+</code></pre>
+<!-- Notes
+    Wow, so you don't need to know anything about your type.
+    The only thing I need to ensure is that the obj is an input_range (What ever that means).
+    And that the elements of this type can be printed.
+    The rest is auto-magically done by the compiler.
+    If the types do not match the constraints the compiler will inform me about the wrong types.
+    Note, that this is valid C++-20 code.
+-->
+</section>
+
+<section>
+    <div align="left"><h4>C++-Evolution</h4></div>
+
+</section>
+
 
 <section>
 <h3>Schedule<small>*</small>:</h3>
@@ -359,24 +581,24 @@ $ ./fastq2fasta data/input.fq data/output.fa
 </ul>
 </section>
 
-			</div>
-		</div>
+            </div>
+        </div>
 
-		<script src="reveal.js-3.9.2/js/reveal.js"></script>
+        <script src="reveal.js-3.9.2/js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				hash: true,
-				dependencies: [
-					{ src: 'reveal.js-3.9.2/plugin/markdown/marked.js' },
-					{ src: 'reveal.js-3.9.2/plugin/markdown/markdown.js' },
-					{ src: 'reveal.js-3.9.2/plugin/highlight/highlight.js' },
-					{ src: 'reveal.js-3.9.2/plugin/notes/notes.js', async: true }
-				]
-			});
-		</script>
-	</body>
+        <script>
+            // More info about config & dependencies:
+            // - https://github.com/hakimel/reveal.js#configuration
+            // - https://github.com/hakimel/reveal.js#dependencies
+            Reveal.initialize({
+                hash: true,
+                dependencies: [
+                    { src: 'reveal.js-3.9.2/plugin/markdown/marked.js' },
+                    { src: 'reveal.js-3.9.2/plugin/markdown/markdown.js' },
+                    { src: 'reveal.js-3.9.2/plugin/highlight/highlight.js' },
+                    { src: 'reveal.js-3.9.2/plugin/notes/notes.js', async: true }
+                ]
+            });
+        </script>
+    </body>
 </html>
