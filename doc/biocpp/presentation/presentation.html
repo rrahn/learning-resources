@@ -642,6 +642,50 @@ seqan3::sequence_file_output out{std::cout,
 </ul>
 </section>
 
+<section data-markdown>
+<textarea data-template>
+###### Generic algorithms
+
+We write an application that will look like this:
+<!-- .element: class="fragment" -->
+
+```
+$ ./sum 0 1 2 3 4 5 6 7 8 9
+$ The sum of all numbers is 45.
+```
+<!-- .element: class="fragment" -->
+
+</textarea>
+</section>
+
+<section data-markdown>
+<script type="text/template">
+###### Generic algorithms</h6>
+
+```
+$ ./sum 0 1 2 3 4 5 6 7 8 9
+```
+<!-- .element: class="fragment" -->
+
+### Steps during this part
+<!-- .element: class="fragment" -->
+
+    * <!-- .element: class="fragment" -->
+    Convert the command line arguments to ints and store them.
+    * <!-- .element: class="fragment" -->
+    Write a sum algorithm using a range-based for loop.
+    * <!-- .element: class="fragment" -->
+    Rewrite the algorithm to use existing algorithms.
+    * <!-- .element: class="fragment" -->
+    Use a library to write out a **fasta** file.
+</script>
+<!-- Notes:
+    * indexed-based for-loop
+    * range-based for-loop
+    * algorithm
+ -->
+</section>
+
 <section>
     <h6>Container / Iterators / Tuples</h6>
     <!-- Notes:
