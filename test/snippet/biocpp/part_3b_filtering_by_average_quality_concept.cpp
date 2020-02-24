@@ -3,7 +3,6 @@
 #include <seqan3/alphabet/quality/all.hpp>
 #include <seqan3/io/sequence_file/all.hpp>
 #include <seqan3/range/views/to_rank.hpp>
-#include <seqan3/std/algorithm>
 #include <seqan3/std/ranges>
 
 template <std::ranges::input_range range_t>
