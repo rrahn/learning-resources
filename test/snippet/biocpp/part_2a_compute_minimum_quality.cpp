@@ -35,7 +35,7 @@ int main(int const argc, character_string argv[])
     // Only write out records that have no base call below the given minimum base quality.
     for (auto && [seq, id, qual] : seq_file_in) // untie elements of a tuple
     {
-        if (std::ranges::none_of(qual, [&] (auto && current_quality) { return current_quality < minimum_phred_quality; }))
+        if (std::ranges::all_of(qual, [&] (auto && current_quality) { return current_quality >= minimum_phred_quality; }))
             seq_file_out.emplace_back(seq, id);
     }
 
