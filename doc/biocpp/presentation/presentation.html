@@ -95,11 +95,11 @@
 <ul>
 	<li class="fragment"><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li class="fragment"><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li class="fragment"><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li class="fragment"><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
 	<li class="fragment"><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li class="fragment"><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li class="fragment"><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
 	<li class="fragment"><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li class="fragment"><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li class="fragment"><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
 	<li class="fragment"><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li class="fragment"><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
@@ -110,11 +110,11 @@
 <ul>
 	<li class="fragment highlight-blue grow"><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
 	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
@@ -172,11 +172,11 @@ make -j 4
 <ul>
 	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li class="fragment highlight-blue grow"><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
 	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
@@ -471,11 +471,11 @@ void print(std::ranges::input_range auto && obj)
 <ul>
 	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li class="fragment highlight-blue grow"><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li class="fragment highlight-blue grow"><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
 	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
@@ -483,7 +483,7 @@ void print(std::ranges::input_range auto && obj)
 
 <section data-markdown>
 <textarea data-template>
-###### FASTQ -> FASTA conversion (I)
+###### FASTQ -> FASTA conversion (sequence files) (I)
 
 We write an application that will look like this:
 <!-- .element: class="fragment" -->
@@ -497,7 +497,7 @@ $ ./fastq2fasta data/input.fq data/output.fa
 
 <section data-markdown>
 <script type="text/template">
-###### FASTQ -> FASTA conversion (II)
+###### FASTQ -> FASTA conversion (sequence files) (II)
 
 How does a FASTQ and FASTA file look like?
 <!-- .element: class="fragment" -->
@@ -526,7 +526,7 @@ How does a FASTQ and FASTA file look like?
 
 <section data-markdown>
 <script type="text/template">
-###### FASTQ -> FASTA conversion (III)</h6>
+###### FASTQ -> FASTA conversion (sequence files) (III)</h6>
 
 ```
 $ ./fastq2fasta data/input.fq data/output.fa
@@ -632,11 +632,11 @@ seqan3::sequence_file_output out{std::cout,
 <ul>
 	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li class="fragment highlight-blue grow"><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li class="fragment highlight-blue grow"><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
 	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
@@ -644,14 +644,114 @@ seqan3::sequence_file_output out{std::cout,
 
 <section data-markdown>
 <textarea data-template>
-###### Generic algorithms
+###### Working with ranges
 
-We write an application that will look like this:
+Extend the fastq2fasta program to only output reads with base qualities over a user given threshold.
 <!-- .element: class="fragment" -->
 
-```
-$ ./sum 0 1 2 3 4 5 6 7 8 9
-$ The sum of all numbers is 45.
+* <!-- .element: class="fragment" -->
+Read user input interactively
+* <!-- .element: class="fragment" -->
+Iterate over the fastq records
+* <!-- .element: class="fragment" -->
+Write out fasta records with minimum quality criteria
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+###### Working with ranges
+
+Learning objectives
+
+<!-- .element: class="fragment" -->
+
+* <!-- .element: class="fragment" -->
+What is a range
+* <!-- .element: class="fragment" -->
+How to generically access elements of a range
+* <!-- .element: class="fragment" -->
+Use a range-based for-loop
+* <!-- .element: class="fragment" -->
+Use a range-based algorithms
+* <!-- .element: class="fragment" -->
+Using auto specifier to deduce type automatically
+* <!-- .element: class="fragment" -->
+Work with tuples
+* <!-- .element: class="fragment" -->
+Access fastq-file record-wise
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+###### Working with ranges
+
+What is a range
+
+<img src="img/range.jpg">
+<!-- .element: class="fragment" -->
+
+* <!-- .element: class="fragment" -->
+range = pair of begin and end
+* <!-- .element: class="fragment" -->
+end must be reachable from begin
+
+</textarea>
+
+<!-- Notes:
+    To answer the question of what a range is, let's have a closer look at our std::string_view.
+    At the beginning we said we will use a string view to handle the data stored in a c-string, with the benefit of no extra memory allocation.
+    But what else does it give us? Looking at the documentation we can see that string view offers two member functions called .begin() and .end().
+    In this case, begin() returns an iterator pointing to the first element of the string view and end returns us an iterator pointing to the past-the-end element.
+    More generically, end returns an object that indicates the end of the range but is not itself part of the range.
+    It immediately follows, that we cannot access an element that is pointed to by the end.
+
+    In C++ iterators are used as a generic abstraction that allows us to write generic and efficient code.
+    They hide the implementation of the data structure as well as the memory layout of the data and provide a unified access to the underlying elements. (Example?)
+    All the STL algorithms are based on this paradigm as they operate on iterators and not on the specific range implementations.
+    This brings many advantages, e.g. algorithms do not need to be implemented over and over again, reducing code complexity, improving maintainability and sustainability.
+-->
+</section>
+
+<section data-markdown>
+<textarea data-template>
+###### Working with ranges
+
+Ranges in the STL
+<!-- .element: class="fragment" -->
+
+* <!-- .element: class="fragment" -->
+std::string_view, std::string
+* <!-- .element: class="fragment" -->
+std::vector, std::span
+* <!-- .element: class="fragment" -->
+std::list, std::forward_list
+* <!-- .element: class="fragment" -->
+std::map, std::set
+* <!-- .element: class="fragment" -->
+std::unordered_map, std::unordered_set
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+###### Working with ranges
+
+Element-wise access of range elements.
+<!-- .element: class="fragment" -->
+
+```cpp
+#include <iostream>
+#include <vector>
+
+std::vector data{0, 1, 2, 3, 4, 5, 6};
+
+for (auto && element : data)
+    std::cout << element;
 ```
 <!-- .element: class="fragment" -->
 
@@ -659,70 +759,80 @@ $ The sum of all numbers is 45.
 </section>
 
 <section data-markdown>
-<script type="text/template">
-###### Generic algorithms</h6>
+<textarea data-template>
+###### Working with ranges
 
-```
-$ ./sum 0 1 2 3 4 5 6 7 8 9
-```
+What does `auto &&` do?
 <!-- .element: class="fragment" -->
 
-### Steps during this part
+* <!-- .element: class="fragment" -->
+Automatic type-deduction
+* <!-- .element: class="fragment" -->
+Automatic reference detection
+
+</textarea>
+</section>
+
+<section>
+    <p class=live-coding>Live Demo</p>
+    <!-- Notes:
+        Adapt the code from above and use range-based for loop to iterate over elements of the file.
+        Use get<1> to display the id to the standard output.
+
+    -->
+</section>
+
+<section data-markdown>
+<textarea data-template>
+###### Working with tuples
+
+SeqAn3 files are ranges over tuples
 <!-- .element: class="fragment" -->
 
+* <!-- .element: class="fragment" -->
+A tuple is a static collection of objects of different types
+* <!-- .element: class="fragment" -->
+Access via special get interface
     * <!-- .element: class="fragment" -->
-    Convert the command line arguments to ints and store them.
+    via index:<br>
+    `std::get<1>(std::tuple{"first", 2})`
     * <!-- .element: class="fragment" -->
-    Write a sum algorithm using a range-based for loop.
-    * <!-- .element: class="fragment" -->
-    Rewrite the algorithm to use existing algorithms.
-    * <!-- .element: class="fragment" -->
-    Use a library to write out a **fasta** file.
-</script>
+    via type:<br>
+    `std::get<int>(std::tuple{"first", 2})`
+
+</textarea>
 <!-- Notes:
-    * indexed-based for-loop
-    * range-based for-loop
-    * algorithm
+    In SeqAn we offer additional access via enum. seqan3::field::id.
  -->
 </section>
 
 <section>
-    <h6>Container / Iterators / Tuples</h6>
+    <p class=live-coding>Live Demo</p>
     <!-- Notes:
-        * Containers in C++
-        * What is a container?
-        * How to access a container?
-        * Abstraction of containers as iterables. -> Fundamental principles of generic programming.
-            * begin/end
-            * iterator
-            * algorithms on iterator
-        *
-        * collections of different types -> tuple
-        * access of tuple
+        Use field enum to print the id.
+        Then access the quality.
+        Write code that checks if there is any
     -->
-    <ul>
-    <li>write hello world</li>
-    </ul>
-    </section>
+</section>
 
-<section>
-<h6>Container / Iterators / Tuples</h6>
+<section data-markdown>
+<textarea data-template>
+###### Lambda expressions
+
+Consists of three main parts:
+<!-- .element: class="fragment" -->
+
+* <!-- .element: class="fragment" -->
+Capture block `[ ]`
+* <!-- .element: class="fragment" -->
+Parameter block `( )`
+* <!-- .element: class="fragment" -->
+Function body `{ }`
+
+</textarea>
 <!-- Notes:
-    * String literal -> has to be the entry point of any program that captures
-    * Containers in C++
-    * What is a container?
-    * How to access a container?
-    * Abstraction of containers as iterables. -> Fundamental principles of generic programming.
-        * begin/end
-        * iterator
-        * algorithms on iterator
-    *
-    * collections of different types -> tuple
-    * access of tuple
--->
-<ul>
-<li>write hello world</li>
-</ul>
+    In SeqAn we offer additional access via enum. seqan3::field::id.
+    -->
 </section>
 
 <section>
@@ -730,26 +840,80 @@ $ ./sum 0 1 2 3 4 5 6 7 8 9
 <ul>
 	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li class="fragment highlight-blue grow"><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li class="fragment highlight-blue grow"><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
 	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
 </section>
 
+<section data-markdown>
+<textarea data-template>
+###### Working with views
+
+Extend the fastq2fasta program to only output reads with a minimum average base call quality.
+<!-- .element: class="fragment" -->
+
+* <!-- .element: class="fragment" -->
+
+* <!-- .element: class="fragment" -->
+Iterate over the fastq records
+* <!-- .element: class="fragment" -->
+Write out fasta records with minimum quality criteria
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+###### Working with views
+
+Learning objectives
+
+<!-- .element: class="fragment" -->
+
+* <!-- .element: class="fragment" -->
+What is a view
+* <!-- .element: class="fragment" -->
+How to chain ranges/views
+* <!-- .element: class="fragment" -->
+Writing generic algorithms
+* <!-- .element: class="fragment" -->
+Understanding and using concepts in generic code
+
+</textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+###### Working with views
+
+Extend the fastq2fasta program to handle paired-end reads.
+<!-- .element: class="fragment" -->
+
+* <!-- .element: class="fragment" -->
+Read user input interactively
+* <!-- .element: class="fragment" -->
+Iterate over the fastq records
+* <!-- .element: class="fragment" -->
+Write out fasta records with minimum quality criteria
+
+</textarea>
+</section>
+
 <section>
 <h3>Schedule<small>*</small>:</h3>
 <ul>
 	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
 	<li class="fragment highlight-blue grow"><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
@@ -774,11 +938,11 @@ $ ./sum 0 1 2 3 4 5 6 7 8 9
 <ul>
 	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span class='time-slot'>10:45 - 11:45</span> Container / Iterators / Tuples</li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li><span class='time-slot'>14:30 - 15:50</span> Paired-End filter (Ranges / Concepts)</li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
 	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li class="fragment highlight-blue grow"><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
