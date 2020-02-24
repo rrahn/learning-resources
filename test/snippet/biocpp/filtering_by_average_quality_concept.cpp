@@ -1,12 +1,21 @@
-#include <cmath>
-#include <iostream>
-#include <numeric>
 #include <string_view>
-#include <vector>
 
 #include <seqan3/alphabet/quality/all.hpp>
 #include <seqan3/io/sequence_file/all.hpp>
+#include <seqan3/range/views/to_rank.hpp>
 #include <seqan3/std/algorithm>
+#include <seqan3/std/ranges>
+
+template <std::ranges::input_range range_t>
+    requires std::integral<std::ranges::range_value_t<range_t>>
+int32_t sum(range_t && range)
+{
+    int32_t intermediate_sum{};
+    for (auto && element : range)
+        intermediate_sum += element;
+
+    return intermediate_sum;
+}
 
 // Request user interaction to provide the minimum base quality.
 seqan3::phred42 read_user_base_quality()
@@ -36,12 +45,14 @@ int main(int const argc, character_string argv[])
     seqan3::sequence_file_input seq_file_in{fastq_input_path};
     seqan3::sequence_file_output seq_file_out{fasta_output_path};
 
-    // Only write out records that have no base call below the given minimum base quality.
-    for (auto && [seq, id, qual] : seq_file_in) // untie elements of a tuple
-    {
-        if (std::ranges::none_of(qual, [&] (auto && current_quality) { return current_quality < minimum_phred_quality; }))
-            seq_file_out.emplace_back(seq, id);
-    }
+    // Only print sequences with average quality filter.
+    seq_file_out = seq_file_in
+                 | std::views::filter([&] (auto && fastq_record)
+                   {
+                       auto quality_rank_view = seqan3::get<seqan3::field::qual>(fastq_record) | seqan3::views::to_rank;
+                       seqan3::phred42 average_phred_quality = sum(quality_rank_view) / std::ranges::distance(quality_rank_view);
+                       return average_phred_quality > minimum_phred_quality;
+                   });
 
     return EXIT_SUCCESS;
 }

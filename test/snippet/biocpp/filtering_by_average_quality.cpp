@@ -1,57 +1,57 @@
-#include <cmath>
-#include <iostream>
-#include <numeric>
 #include <string_view>
-#include <vector>
 
 #include <seqan3/alphabet/quality/all.hpp>
 #include <seqan3/io/sequence_file/all.hpp>
 #include <seqan3/range/views/to_rank.hpp>
-#include <seqan3/std/algorithm>
 #include <seqan3/std/ranges>
 
 template <typename range_t>
-int32_t sum(range_t const & data)
+int32_t sum(range_t && range)
 {
-    return std::accumulate(std::ranges::begin(data), std::ranges::end(data), 0);  // Use algorithms
+    int32_t intermediate_sum{};
+    for (auto && element : range)
+        intermediate_sum += element;
+
+    return intermediate_sum;
 }
 
-int32_t convert_to_sanger_quality(double probability)
+// Request user interaction to provide the minimum base quality.
+seqan3::phred42 read_user_base_quality()
 {
-    return std::lround(-10 * std::log10(1.0 - probability));
+    std::cout << "Please specify the minimum base quality as a probability between 0 and 41\n";
+    int32_t user_base_quality{};
+    std::cin >> user_base_quality;
+
+    if (user_base_quality < 0 || user_base_quality > 41)
+        throw std::invalid_argument{"Only values in the interval [0, 41] can be used."};
+
+    return seqan3::phred42{}.assign_rank(user_base_quality);
 }
 
 using character_string = const char *;
 
-int main(int const , character_string argv[])
+int main(int const argc, character_string argv[])
 {
+    if (argc != 3)
+        return EXIT_FAILURE;
+
     std::string_view fastq_input_path{argv[1]};
+    std::string_view fasta_output_path{argv[2]};
 
-    std::cout << "Please specify the minimum base quality as a value between 0.00 and 1.00\n";
-    double minimum_base_quality{};
-    std::cin >> minimum_base_quality;
-
-    seqan3::phred42 minimum_phred_quality{};
-    minimum_phred_quality.assign_rank(convert_to_sanger_quality(minimum_base_quality));
-
-    std::cout << "The corresponding phred score is: " << static_cast<int32_t>(minimum_phred_quality.to_rank()) << "\n";
-    std::cout << "The corresponding ASCII mapping is: " << minimum_phred_quality.to_char() << "\n";
+    seqan3::phred42 minimum_phred_quality = read_user_base_quality();
 
     seqan3::sequence_file_input seq_file_in{fastq_input_path};
-    seqan3::sequence_file_output seq_file_out{std::cout, seqan3::format_fasta{}};
+    seqan3::sequence_file_output seq_file_out{fasta_output_path};
 
-    // Find average quality.
-    auto by_average_quality = [minimum_phred_quality] (auto const & fastq_record) // ["ACGTGAATGAC...", "id", "==+!456AA..."]
-    {
-        auto quality_sequence = seqan3::get<seqan3::field::qual>(fastq_record); // ["==+!456AA..."]
-        auto quality_rank_sequence = quality_sequence | seqan3::views::to_rank; // ["56,56,34, 33, ..."]
-        auto rank_sum = sum(quality_rank_sequence);
-        auto average_rank = rank_sum / std::ranges::distance(quality_sequence);
-        return seqan3::phred42{}.assign_rank(average_rank) >= minimum_phred_quality;
-    };
 
     // Only print sequences with average quality filter.
-    seq_file_out = seq_file_in | std::views::filter(by_average_quality); // untie elements of a tuple
+    seq_file_out = seq_file_in
+                 | std::views::filter([&] (auto && fastq_record)
+                   {
+                       auto quality_rank_view = seqan3::get<seqan3::field::qual>(fastq_record) | seqan3::views::to_rank;
+                       seqan3::phred42 average_phred_quality = sum(quality_rank_view) / std::ranges::distance(quality_rank_view);
+                       return average_phred_quality > minimum_phred_quality;
+                   });
 
     return EXIT_SUCCESS;
 }
