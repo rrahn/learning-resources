@@ -1,8 +1,4 @@
-#include <cmath>
-#include <iostream>
-#include <numeric>
 #include <string_view>
-#include <vector>
 
 #include <seqan3/alphabet/quality/all.hpp>
 #include <seqan3/io/sequence_file/all.hpp>
