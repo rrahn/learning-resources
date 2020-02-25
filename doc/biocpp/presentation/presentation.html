@@ -659,152 +659,6 @@ Learning objectives
 <p class=live-coding></p>
 </section>
 
-<section data-markdown>
-<textarea data-template>
-###### Working with ranges
-
-What is a range?
-
-<img src="img/range.jpg">
-<!-- .element: class="fragment" -->
-
-* <!-- .element: class="fragment" -->
-  range = pair of begin and end
-* <!-- .element: class="fragment" -->
-  end must be reachable from begin
-
-</textarea>
-
-<aside class="notes" data-markdown>
-    To answer the question of what a range is, let's have a closer look at our std::string_view.
-    At the beginning we said we will use a string view to handle the data stored in a c-string, with the benefit of no extra memory allocation.
-    But what else does it give us? Looking at the documentation we can see that string view offers two member functions called .begin() and .end().
-    In this case, begin() returns an iterator pointing to the first element of the string view and end returns us an iterator pointing to the past-the-end element.
-    More generically, end returns an object that indicates the end of the range but is not itself part of the range.
-    It immediately follows, that we cannot access an element that is pointed to by the end.
-
-    In C++ iterators are used as a generic abstraction that allows us to write generic and efficient code.
-    They hide the implementation of the data structure as well as the memory layout of the data and provide a unified access to the underlying elements. (Example?)
-    All the STL algorithms are based on this paradigm as they operate on iterators and not on the specific range implementations.
-    This brings many advantages, e.g. algorithms do not need to be implemented over and over again, reducing code complexity, improving maintainability and sustainability.
-</aside>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-###### Working with ranges
-
-Ranges in the STL
-<!-- .element: class="fragment" -->
-
-* <!-- .element: class="fragment" -->
-  std::string_view, std::string
-* <!-- .element: class="fragment" -->
-  std::vector, std::span
-* <!-- .element: class="fragment" -->
-  std::list, std::forward_list
-* <!-- .element: class="fragment" -->
-  std::map, std::set
-* <!-- .element: class="fragment" -->
-  std::unordered_map, std::unordered_set
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-###### Working with ranges
-
-Element-wise access of range elements.
-<!-- .element: class="fragment" -->
-
-```cpp
-#include <iostream>
-#include <vector>
-
-std::vector data{0, 1, 2, 3, 4, 5, 6};
-
-for (auto && element : data)
-    std::cout << element;
-```
-<!-- .element: class="fragment" -->
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-###### Working with ranges
-
-What does `auto &&` do?
-<!-- .element: class="fragment" -->
-
-* <!-- .element: class="fragment" -->
-  Automatic type-deduction
-* <!-- .element: class="fragment" -->
-  Automatic reference detection
-
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-###### Working with tuples
-
-SeqAn3 files are ranges over tuples
-<!-- .element: class="fragment" -->
-
-* <!-- .element: class="fragment" -->
-  A tuple is a static collection of objects of different types
-* <!-- .element: class="fragment" -->
-  Access via special get interface
-  * <!-- .element: class="fragment" -->
-    via index:
-    ```cpp
-    std::get<1>(std::tuple{"first", 2})
-    ```
-  * <!-- .element: class="fragment" -->
-    via type:
-    ```cpp
-    std::get<int>(std::tuple{"first", 2})
-    ```
-
-</textarea>
-<aside class="notes" data-markdown>
-    In SeqAn we offer additional access via enum. seqan3::field::id.
-</aside>
-</section>
-
-<section>
-<p class=live-coding></p>
-
-<aside class="notes" data-markdown>
-    Use field enum to print the id.
-    Then access the quality.
-    Write code that checks if there is any
-</aside>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-###### Lambda expressions
-
-Consists of three main parts:
-<!-- .element: class="fragment" -->
-
-* <!-- .element: class="fragment" -->
-  Capture block `[ ]`
-* <!-- .element: class="fragment" -->
-  Parameter block `( )`
-* <!-- .element: class="fragment" -->
-  Function body `{ }`
-
-</textarea>
-<aside class="notes" data-markdown>
-    In SeqAn we offer additional access via enum. seqan3::field::id.
-</aside>
-</section>
-
 <section>
 <h3>Schedule<small>*</small>:</h3>
 <ul>
@@ -855,6 +709,16 @@ Learning objectives
   understanding and using concepts in generic code
 
 </textarea>
+</section>
+
+<section>
+<p class=live-coding></p>
+
+<aside class="notes" data-markdown>
+    Use field enum to print the id.
+    Then access the quality.
+    Write code that checks if there is any
+</aside>
 </section>
 
 <section data-markdown>
