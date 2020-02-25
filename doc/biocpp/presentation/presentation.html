@@ -136,7 +136,7 @@
 <textarea data-template>
 ###### Setup (II):
 
-Download course-material:
+download course-material:
 <!-- .element: class="fragment" -->
 
 ```
@@ -148,7 +148,7 @@ git submodule update --init --recursive
 ```
 <!-- .element: class="fragment" -->
 
-Configure makescript:
+configure makescript:
 <!-- .element: class="fragment" -->
 
 ```
@@ -157,7 +157,7 @@ cmake ../src/biocpp
 ```
 <!-- .element: class="fragment" -->
 
-Build:
+build:
 <!-- .element: class="fragment" -->
 
 ```
@@ -180,39 +180,6 @@ make -j 4
     <li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
     <li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-###### Introduction (I)
-
-* <!-- .element: class="fragment" -->
-  C++ einordnen R / Python / C++
-* <!-- .element: class="fragment" -->
-  community driven
-* <!-- .element: class="fragment" -->
-  ISO standard
-* <!-- .element: class="fragment" -->
-  everyone can propose changes
-* <!-- .element: class="fragment" -->
-  we have contributed as well
-* <!-- .element: class="fragment" -->
-  static type system
-* <!-- .element: class="fragment" -->
-  functional / procdural / oop (not done in the course)
-* <!-- .element: class="fragment" -->
-  imperative lanuage: for, if, sequential execution of steps
-* <!-- .element: class="fragment" -->
-  No garbage collection
-* <!-- .element: class="fragment" -->
-  generic programming (duck typing)
-* <!-- .element: class="fragment" -->
-  compilation
-* <!-- .element: class="fragment" -->
-  libraries
-* <!-- .element: class="fragment" -->
-  Not afraid of new (allocation)
-</textarea>
 </section>
 
 <section data-markdown>
@@ -247,13 +214,13 @@ How is C++ different?
 ###### Object-oriented
 
 * <!-- .element: class="fragment" -->
-  Models the world as objects
+  model the world as objects
 * <!-- .element: class="fragment" -->
-  Objects provide interface
+  objects provide interfaces
 * <!-- .element: class="fragment" -->
-  Objects can interact with each other
+  objects can interact with each other
 * <!-- .element: class="fragment" -->
-  Design patterns "Gang of Four" to reduce complexity
+  design patterns "Gang of Four" to reduce complexity
 </textarea>
 </section>
 
@@ -262,9 +229,9 @@ How is C++ different?
 ###### Structured & Imperative
 
 * <!-- .element: class="fragment" -->
-  Code executed in sequential order (assuming no concurrency)
+  code executed in sequential order (assuming no concurrency)
 * <!-- .element: class="fragment" -->
-  Control flow through ...
+  control flow through ...
   * <!-- .element: class="fragment" -->
     repetition: for, while, do-while, etc.
   * <!-- .element: class="fragment" -->
@@ -272,7 +239,7 @@ How is C++ different?
   * <!-- .element: class="fragment" -->
     multi-branching: switch, if else
 * <!-- .element: class="fragment" -->
-  Stateful algorithms
+  stateful algorithms
 </textarea>
 </section>
 
@@ -281,15 +248,15 @@ How is C++ different?
 ###### Procedural & Functional
 
 * <!-- .element: class="fragment" -->
-  Breaking up monolithic code in functions
+  breaking up monolithic code into functions
 * <!-- .element: class="fragment" -->
-  Opposed to object-oriented programming
+  opposed to object-oriented programming
 * <!-- .element: class="fragment" -->
-  Recursive
+  recursive
 * <!-- .element: class="fragment" -->
-  No shared state/immutable
+  no shared state/immutables
 * <!-- .element: class="fragment" -->
-  Lambda-calculus
+  lambda functions
 </textarea>
 </section>
 
@@ -453,9 +420,9 @@ void print(std::vector<char> const & obj)
 <section data-markdown data-transition="fade-in fade-out">
 <textarea data-template>
 ```cpp
-#include <iostream>;
+#include <iostream>
 
-template <typename object_t>;
+template <typename object_t>
 void print(object_t && obj)
 {
     for (auto && c : obj)
@@ -475,8 +442,8 @@ void print(object_t && obj)
 <section data-markdown data-transition="fade-in">
 <textarea data-template>
 ```cpp
-#include <iostream>;
-#include <ranges>;
+#include <iostream>
+#include <ranges>
 
 void print(std::ranges::input_range auto && obj)
 {
