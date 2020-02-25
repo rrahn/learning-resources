@@ -1083,7 +1083,8 @@ Extend the fastq2fasta program to handle paired-end reads.
                 dependencies: [
                     { src: 'reveal.js-3.9.2/plugin/markdown/marked.js' },
                     { src: 'reveal.js-3.9.2/plugin/markdown/markdown.js' },
-                    { src: 'reveal.js-3.9.2/plugin/highlight/highlight.js' },
+                    // { src: 'reveal.js-3.9.2/plugin/highlight/highlight.js' },
+                    { src: 'reveal.js-3.9.2/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                     { src: 'reveal.js-3.9.2/plugin/notes/notes.js', async: true }
                 ]
             });
