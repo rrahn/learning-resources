@@ -226,6 +226,7 @@ How is C++ different?
 <section data-markdown>
 <textarea data-template>
 ###### Object-oriented
+
 * Models the world as objects
 * Objects provide interface
 * Objects can interact with each other
@@ -233,33 +234,35 @@ How is C++ different?
 </textarea>
 </section>
 
-<section>
-    <div align="left"><h4>Structured & Imperative</h4></div>
-    <ul>
-        <li>Code executed in sequential order (assuming no concurrency)</li>
-        <li>Control flow through ...</li>
-        <ul>
-            <li>repetition: for, while, do-while, etc.</li>
-            <li>branching: if, else</li>
-            <li>multi-branching: switch, if else</li>
-        </ul>
-        <li>Stateful algorithms</li>
-    </ul>
+<section data-markdown>
+<textarea data-template>
+###### Structured & Imperative
+
+* Code executed in sequential order (assuming no concurrency)
+* Control flow through ...
+  * repetition: for, while, do-while, etc.
+  * branching: if, else
+  * multi-branching: switch, if else
+* Stateful algorithms
+</textarea>
 </section>
 
-<section>
-    <div align="left"><h4>Procedural & Functional</h4></div>
-    <ul>
-        <li>Breaking up monolithic code in functions</li>
-        <li>Opposed to object-oriented programming</li>
-        <li>Recursive</li>
-        <li>No shared state/immutable</li>
-        <li>Lambda-calculus</li>
-    </ul>
+<section data-markdown>
+<textarea data-template>
+###### Procedural & Functional
+
+* Breaking up monolithic code in functions
+* Opposed to object-oriented programming
+* Recursive
+* No shared state/immutable
+* Lambda-calculus
+</textarea>
 </section>
 
-<section>
-    <h3>Ok that's nice. But I learned that memory handling is difficult in C++.</h6>
+<section data-markdown>
+<textarea data-template>
+### Ok that's nice. But I learned that memory handling is difficult in C++.
+</textarea>
 </section>
 
 <section data-markdown>
@@ -288,66 +291,78 @@ int main()
 </textarea>
 </section>
 
-<section>
-    <div align="left"><h4>Notes to Garbage Collection</h4></div>
-    <ul>
-        <li>C++ has no (language-builtin) garbage collection, but RAII</li>
-        <li>Java and C# support it. Allocate objects with <tt>new</tt></li>
-        <li>Python uses reference counting but allows some sort of manual control</li>
-        <li>C, ... yeah well, that is another story</li>
-    </ul>
-    <div align="left"><h4>Control over memory is a key for performance!</h4></div>
+<section data-markdown>
+<textarea data-template>
+###### Notes to Garbage Collection
+
+* C++ has no (language-builtin) garbage collection, but RAII
+* Java and C# support it. Allocate objects with `new`
+* Python uses reference counting but allows some sort of manual control
+* C, ... yeah well, that is another story
+
+**Control over memory is a key for performance!**
+</textarea>
 </section>
 
-<section>
-    <h3>But there are so many cool libraries that I can use with the other programming languages?</h6>
+<section data-markdown>
+<textarea data-template>
+### But there are so many cool libraries that I can use with the other programming languages?
 <!-- Notes
 
 -->
+</textarea>
 </section>
 
-<section>
-    <div align="left"><h4>C++ is a community driven language</h4></div>
-    <ul>
-        <li>C++ supports usage of third party libraries</li>
-        <li>Standard Template Library (STL) shipped with C++ compiler</li>
-        <li>Anyone can propose language or STL features</li>
-        <li>ISO committee manages standardization</li>
-    </ul>
+<section data-markdown>
+<textarea data-template>
+###### C++ is a community driven language
+
+* C++ supports usage of third party libraries
+* Standard Template Library (STL) shipped with C++ compiler
+* Anyone can propose language or STL features
+* ISO committee manages standardization
+
 <!-- Notes
     If something is not supported there is likely to be a library that does it already.
     STL is rich on features.
     We actually have submitted two small papers, that were accepted for C++20.
     The language and the library will be standardized by an ISO committee.
 -->
+</textarea>
 </section>
 
-<section>
-    <h3>Mhmm, I see your point. But especially Python makes it so easy to work with dynamic types.</h6>
+<section data-markdown>
+<textarea data-template>
+### Mhmm, I see your point. But especially Python makes it so easy to work with dynamic types.
+
 <!-- Notes
     Good point.
     What I will not do here is to start a fundamental discussion about what would be the better option.
     At the end this is mainly a subjective matter and each approach has its pros and cons.
     But for the sake of completion let us compare the differences.
 -->
+</textarea>
 </section>
 
-<section>
-    <div align="left"><h4>Dynamic- vs static-typed languages</h4></div>
-    <ul>
-        <li>Dynamic-typed: The type is determined at run time by the interpreter.</li>
-        <li>Static-typed: The type is determined at compile time by the compiler.</li>
-        <li>C++ allows compile time type-deduction.</li>
-    </ul>
+<section data-markdown>
+<textarea data-template>
+###### Dynamic- vs static-typed languages
+
+* Dynamic-typed: The type is determined at run time by the interpreter.</li>
+* Static-typed: The type is determined at compile time by the compiler.</li>
+* C++ allows compile time type-deduction.</li>
+
 <!-- Notes
     Let me in the following show you on some very simple code example the evolution of C++ regarding type deduction.
 -->
+</textarea>
 </section>
 
-<section>
-<pre><code>
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
+<section data-markdown data-transition="fade-out">
+<textarea data-template>
+```cpp
+#include <iostream>
+#include <vector>
 
 int main()
 {
@@ -358,37 +373,43 @@ int main()
     std::cout << "\n";
     return 0;
 }
-</code></pre>
+```
+
 <!-- Notes
     Remember our snippet from before. Here we created a vector of char and wanted to print the content.
     Now we want to extract the element-wise printing of the vector into a separate function.
 -->
+</textarea>
 </section>
 
-<section>
-<pre><code>
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
+<section data-markdown  data-transition="fade-in fade-out">
+<textarea data-template>
+```cpp
+#include <iostream>
+#include <vector>
 
-void print(std::vector&lt;char&gt; const & obj)
+void print(std::vector<char> const & obj)
 {
     for (char c : obj)
         std::cout << c;
 
     std::cout << "\n";
 }
-</code></pre>
+```
+
 <!-- Notes
     This print function can now be used in the main and from other scopes to print a std::vector<char>.
     This is, however, cumbersome if we need to provide a print function for every type.
 -->
+</textarea>
 </section>
 
-<section>
-<pre><code>
-#include &lt;iostream&gt;
+<section data-markdown  data-transition="fade-in fade-out">
+<textarea data-template>
+```cpp
+#include <iostream>;
 
-template &lt;typename object_t&gt;
+template <typename object_t>;
 void print(object_t && obj)
 {
     for (auto && c : obj)
@@ -396,17 +417,20 @@ void print(object_t && obj)
 
     std::cout << "\n";
 }
-</code></pre>
+```
+
 <!-- Notes
     Oh great! Now this code does work for any type.
     But, wait! What when we pass something that cannot be iterated?
 -->
+</textarea>
 </section>
 
-<section>
-<pre><code>
-#include &lt;iostream&gt;
-#include &lt;ranges&gt;
+<section data-markdown  data-transition="fade-in">
+<textarea data-template>
+```cpp
+#include <iostream>;
+#include <ranges>;
 
 void print(std::ranges::input_range auto && obj)
 {
@@ -415,7 +439,8 @@ void print(std::ranges::input_range auto && obj)
 
     std::cout << "\n";
 };
-</code></pre>
+```
+
 <!-- Notes
     Wow, so you don't need to know anything about your type.
     The only thing I need to ensure is that the obj is an input_range (What ever that means).
@@ -424,6 +449,7 @@ void print(std::ranges::input_range auto && obj)
     If the types do not match the constraints the compiler will inform me about the wrong types.
     Note, that this is valid C++-20 code.
 -->
+</textarea>
 </section>
 
 <section>
