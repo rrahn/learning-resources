@@ -62,10 +62,10 @@
     background: url(img/source_code.svg) no-repeat center;
     background-size: 8em;
     height: 6em;
-}​
-.time-slot
+}
+.time-slot, .small
 {
-	font-size: 0.75em;
+    font-size: 0.75em;
 }
 </style>
 
@@ -95,11 +95,11 @@
 <ul>
 	<li class="fragment"><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li class="fragment"><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li class="fragment"><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
+	<li class="fragment"><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion <span class='small'>(sequence files)</span></li>
 	<li class="fragment"><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li class="fragment"><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
+	<li class="fragment"><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
 	<li class="fragment"><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li class="fragment"><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
+	<li class="fragment"><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
 	<li class="fragment"><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li class="fragment"><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
@@ -110,11 +110,11 @@
 <ul>
 	<li class="fragment highlight-blue grow"><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion <span class='small'>(sequence files)</span></li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
 	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
@@ -172,11 +172,11 @@ make -j 4
 <ul>
 	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li class="fragment highlight-blue grow"><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion <span class='small'>(sequence files)</span></li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
 	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
@@ -471,11 +471,11 @@ void print(std::ranges::input_range auto && obj)
 <ul>
 	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li class="fragment highlight-blue grow"><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
+	<li class="fragment highlight-blue grow"><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion <span class='small'>(sequence files)</span></li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
 	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
@@ -483,7 +483,7 @@ void print(std::ranges::input_range auto && obj)
 
 <section data-markdown>
 <textarea data-template>
-###### FASTQ -> FASTA conversion (sequence files) (I)
+###### FASTQ -> FASTA conversion <span class='small'>(sequence files)</span> (I)
 
 We write an application that will look like this:
 <!-- .element: class="fragment" -->
@@ -497,7 +497,7 @@ $ ./fastq2fasta data/input.fq data/output.fa
 
 <section data-markdown>
 <script type="text/template">
-###### FASTQ -> FASTA conversion (sequence files) (II)
+###### FASTQ -> FASTA conversion <span class='small'>(sequence files)</span> (II)
 
 How does a FASTQ and FASTA file look like?
 <!-- .element: class="fragment" -->
@@ -526,7 +526,7 @@ How does a FASTQ and FASTA file look like?
 
 <section data-markdown>
 <script type="text/template">
-###### FASTQ -> FASTA conversion (sequence files) (III)</h6>
+###### FASTQ -> FASTA conversion <span class='small'>(sequence files)</span> (III)</h6>
 
 ```
 $ ./fastq2fasta data/input.fq data/output.fa
@@ -632,11 +632,11 @@ seqan3::sequence_file_output out{std::cout,
 <ul>
 	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion <span class='small'>(sequence files)</span></li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li class="fragment highlight-blue grow"><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
+	<li class="fragment highlight-blue grow"><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
 	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
@@ -840,11 +840,11 @@ Function body `{ }`
 <ul>
 	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion <span class='small'>(sequence files)</span></li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li class="fragment highlight-blue grow"><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
+	<li class="fragment highlight-blue grow"><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
 	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
@@ -909,11 +909,11 @@ Write out fasta records with minimum quality criteria
 <ul>
 	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion <span class='small'>(sequence files)</span></li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
 	<li class="fragment highlight-blue grow"><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
@@ -938,11 +938,11 @@ Write out fasta records with minimum quality criteria
 <ul>
 	<li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
 	<li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion (sequence files)</li>
+	<li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion <span class='small'>(sequence files)</span></li>
 	<li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter (range / lambda / tuple)</li>
+	<li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
 	<li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter (view / concept)</li>
+	<li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
 	<li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
 	<li class="fragment highlight-blue grow"><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
 </ul>
