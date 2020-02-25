@@ -484,7 +484,7 @@ void print(std::ranges::input_range auto && obj)
         std::cout << c;
 
     std::cout << "\n";
-};
+}
 ```
 
 <!-- Notes
@@ -904,11 +904,15 @@ SeqAn3 files are ranges over tuples
 * <!-- .element: class="fragment" -->
   Access via special get interface
   * <!-- .element: class="fragment" -->
-    via index:<br>
-    `std::get<1>(std::tuple{"first", 2})`
+    via index:
+    ```cpp
+    std::get<1>(std::tuple{"first", 2})
+    ```
   * <!-- .element: class="fragment" -->
-    via type:<br>
-    `std::get<int>(std::tuple{"first", 2})`
+    via type:
+    ```cpp
+    std::get<int>(std::tuple{"first", 2})
+    ```
 
 </textarea>
 <!-- Notes:
