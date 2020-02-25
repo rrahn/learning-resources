@@ -254,7 +254,7 @@ How is C++ different?
 * <!-- .element: class="fragment" -->
   recursive
 * <!-- .element: class="fragment" -->
-  no shared state/immutables
+  no shared state
 * <!-- .element: class="fragment" -->
   lambda functions
 </textarea>
@@ -271,8 +271,8 @@ How is C++ different?
 ###### Is that so?
 
 ```cpp
-#include <iostream>;
-#include <vector>;
+#include <iostream>
+#include <vector>
 
 int main()
 {
@@ -281,7 +281,7 @@ int main()
         std::cout << c;
 
     std::cout << "\n";
-    return 0;
+    return EXIT_SUCCESS;
 }
 ```
 <aside class='notes' data-markdown>
@@ -303,7 +303,7 @@ int main()
 * <!-- .element: class="fragment" -->
   Python uses reference counting but allows some sort of manual control
 * <!-- .element: class="fragment" -->
-  C, ... yeah well, that is another story
+  C ... yeah well, that is another story
 
 **Control over memory is a key for performance!**
 <!-- .element: class="fragment" -->
@@ -328,7 +328,7 @@ int main()
 * <!-- .element: class="fragment" -->
   Standard Template Library (STL) shipped with C++ compiler
 * <!-- .element: class="fragment" -->
-  Anyone can propose language or STL features
+  anyone can propose language or STL features
 * <!-- .element: class="fragment" -->
   ISO committee manages standardization
 
@@ -359,9 +359,9 @@ int main()
 ###### Dynamic- vs static-typed languages
 
 * <!-- .element: class="fragment" -->
-  Dynamic-typed: The type is determined at run time by the interpreter.</li>
+  dynamic-typed: The type is determined at run time by the interpreter.</li>
 * <!-- .element: class="fragment" -->
-  Static-typed: The type is determined at compile time by the compiler.</li>
+  static-typed: The type is determined at compile time by the compiler.</li>
 * <!-- .element: class="fragment" -->
   C++ allows compile time type-deduction.</li>
 
@@ -441,6 +441,7 @@ void print(object_t && obj)
 
 <section data-markdown data-transition="fade-in">
 <textarea data-template>
+###### C++20
 ```cpp
 #include <iostream>
 #include <ranges>
@@ -469,7 +470,7 @@ void print(std::ranges::input_range auto && obj)
 <textarea data-template>
 ###### C++-Evolution
 
-<img src="img/c++_standardisation.jpg" height="450">
+<img src="img/c++_standardisation.jpg" height="420">
 <p class='small'>https://isocpp.org/std/status; accessed 23.02.2020</p>
 
 <aside class='notes' data-markdown>
@@ -480,36 +481,6 @@ void print(std::ranges::input_range auto && obj)
 </textarea>
 </section>
 
-<section data-markdown>
-<textarea data-template>
-### Alright, alright, that looks cool and I am hooked to learn more!
-
-But why should I care when I can do all this with Python/Java/C#?
-
-<aside class='notes' data-markdown>
-    Performance.
-</aside>
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-###### Performance
-
-* <!-- .element: class="fragment" -->
-  Data is growing and growing
-* <!-- .element: class="fragment" -->
-  The more information I have the more accurate could be my analysis
-* <!-- .element: class="fragment" -->
-  Shift from single-node to cluster based computation to hetereogeneous computing
-* <!-- .element: class="fragment" -->
-  TODO...
-
-<aside class='notes' data-markdown>
-    Performance.
-</aside>
-</textarea>
-</section>
 
 <section data-markdown>
 <textarea data-template>
@@ -607,18 +578,18 @@ $ ./fastq2fasta data/input.fq data/output.fa
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-  Start with "hello world" programm. <!-- hello world -->
+  start with "hello world" programm. <!-- hello world -->
 * <!-- .element: class="fragment" -->
-  Read and use command-line arguments.
+  read and use command-line arguments
 * <!-- .element: class="fragment" -->
-  Use a library to read in a **fastq** file. <!-- fastq -> fasta -->
+  use a library to read in a **fastq** file <!-- fastq -> fasta -->
 * <!-- .element: class="fragment" -->
-  Use a library to write out a **fasta** file.
+  use a library to write out a **fasta** file
 </script>
 </section>
 
 <section>
-<p class=live-coding>Live Demo</p>
+<p class=live-coding></p>
 
 <aside class="notes" data-markdown>
     Start writing a simple program with hello world.
@@ -632,84 +603,6 @@ $ ./fastq2fasta data/input.fq data/output.fa
         * Formatted files from SeqAn
         * Writing a file to the standard output.
 </aside>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-Have a look at the main:
-
-```cpp
-int main(int const argc, char const * argv[])
-{ ... }
-```
-
-* <!-- .element: class="fragment" -->
-  argc: The number of arguments passed to the program
-* <!-- .element: class="fragment" -->
-  argv: The arguments passed to the program as an array over c-style strings
-* <!-- .element: class="fragment" -->
-  program name is included and is accessed via argv[0]
-
-<aside class="notes" data-markdown>
-    argc >= 1
-    |argv| = argc + 1
-    argv[argc] == std::nullptr
-    argv[0] -> program name or std::nullptr if not supported by environment
-
-Task:
-    The following program: ./foo var1 var2 var3
-    What is the size of argc?
-    a) 3
-    b) 4
-    c) 5
-    d) 1
-</aside>
-</textarea>
-</section>
-
-<!-- In example of main reading command line arguments
-    Use std::string_view to capture arguments.
-    Rational:
-        * Give them a name
-        * Avoid working with pointer types (c-style string)
-        * Avoid allocating memory
-        * Avoid copying data -> non-owning semantics
--->
-
-<section data-markdown>
-<textarea data-template>
-Open files from path.
-
-```cpp
-#include <seqan3/io/sequence_file/all.hpp>;
-
-seqan3::sequence_file_input in{"path/to/my/file.fa"};
-seqan3::sequence_file_input ingz{"path/to/my/file.fa.gz"};
-```
-
-* <!-- .element: class="fragment" -->
-  automatic format detection
-* <!-- .element: class="fragment" -->
-  transparent decompression
-* <!-- .element: class="fragment" -->
-  secure parsing
-</textarea>
-</section>
-
-<section data-markdown>
-<textarea data-template>
-Open files from stream.
-
-```cpp
-#include <seqan3/io/sequence_file/all.hpp>;
-
-seqan3::sequence_file_output out{std::cout,
-                                 seqan3::format_fasta{}};
-```
-
-* <!-- .element: class="fragment" -->
-  format must be specified explicitly
-</textarea>
 </section>
 
 <section>
@@ -735,11 +628,11 @@ Extend the fastq2fasta program to only output reads with base qualities over a u
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-  Read user input interactively
+  read user input interactively
 * <!-- .element: class="fragment" -->
-  Iterate over the fastq records
+  iterate over the fastq records
 * <!-- .element: class="fragment" -->
-  Write out fasta records with minimum quality criteria
+  write out fasta records with minimum quality criteria
 </textarea>
 </section>
 
@@ -752,21 +645,25 @@ Learning objectives
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-  What is a range
+  what is a range
 * <!-- .element: class="fragment" -->
-  How to generically access elements of a range
+  how to generically access elements of a range
 * <!-- .element: class="fragment" -->
-  Use a range-based for-loop
+  use a range-based for-loop
 * <!-- .element: class="fragment" -->
-  Use a range-based algorithms
+  use a range-based algorithm
 * <!-- .element: class="fragment" -->
-  Using auto specifier to deduce type automatically
+  using auto specifier to deduce type automatically
 * <!-- .element: class="fragment" -->
-  Work with tuples
+  work with tuples
 * <!-- .element: class="fragment" -->
-  Access fastq-file record-wise
+  access fastq-file record-wise
 
 </textarea>
+</section>
+
+<section>
+<p class=live-coding></p>
 </section>
 
 <section data-markdown>
@@ -857,15 +754,6 @@ What does `auto &&` do?
 </textarea>
 </section>
 
-<section>
-<p class=live-coding>Live Demo</p>
-
-<aside class="notes" data-markdown>
-    Adapt the code from above and use range-based for loop to iterate over elements of the file.
-    Use get<1> to display the id to the standard output.
-</aside>
-</section>
-
 <section data-markdown>
 <textarea data-template>
 ###### Working with tuples
@@ -947,11 +835,13 @@ Extend the fastq2fasta program to only output reads with a minimum average base 
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-  TODO??
+  iterate over the fastq records
 * <!-- .element: class="fragment" -->
-  Iterate over the fastq records
+  write generic algorithm to compute average quality
 * <!-- .element: class="fragment" -->
-  Write out fasta records with minimum quality criteria
+  apply filter view
+* <!-- .element: class="fragment" -->
+  use concepts for safe generic algorithm
 
 </textarea>
 </section>
@@ -964,15 +854,39 @@ Learning objectives
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-  What is a view
+  what is a view
 * <!-- .element: class="fragment" -->
-  How to chain ranges/views
+  how to chain views
 * <!-- .element: class="fragment" -->
-  Writing generic algorithms
+  writing generic algorithms
 * <!-- .element: class="fragment" -->
-  Understanding and using concepts in generic code
+  understanding and using concepts in generic code
 
 </textarea>
+</section>
+
+<section data-markdown>
+<textarea data-template>
+###### Understanding concepts
+
+* <!-- .element: class="fragment" -->
+  syntactical constraint on a type
+* <!-- .element: class="fragment" -->
+  semantical constraint on a type
+* <!-- .element: class="fragment" -->
+  model hierarchy between types
+
+</textarea>
+</section>
+
+<section>
+<p class=live-coding></p>
+
+<aside class="notes" data-markdown>
+    Use field enum to print the id.
+    Then access the quality.
+    Write code that checks if there is any
+</aside>
 </section>
 
 <section data-markdown>
@@ -983,11 +897,13 @@ Extend the fastq2fasta program to handle paired-end reads.
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-  Read user input interactively
+  add second input argument
 * <!-- .element: class="fragment" -->
-  Iterate over the fastq records
+  combine both files
 * <!-- .element: class="fragment" -->
-  Write out fasta records with minimum quality criteria
+  transform back to flat range
+* <!-- .element: class="fragment" -->
+  directly output to the out file
 
 </textarea>
 </section>
@@ -1012,7 +928,7 @@ Extend the fastq2fasta program to handle paired-end reads.
 ###### Evaluation:
 
 * <!-- .element: class="fragment" -->
-  Please fill out the form and
+  please fill out the form and
 * <!-- .element: class="fragment" -->
   rate what you liked and what you didn't.
 * <!-- .element: class="fragment" -->
