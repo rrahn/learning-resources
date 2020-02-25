@@ -136,29 +136,27 @@
 download course-material:
 <!-- .element: class="fragment" -->
 
-```
+```bash
 git clone https://github.com/rrahn/learning-resources
 
 cd learning-resources
 git submodule update --init --recursive
+```
+<!-- .element: class="fragment" -->
+
+```bash
+mkdir build && cd build
 
 wget http://ftp.seqan.de/workshop/2020/biocpp-data.tar.gz
+tar -xvf biocpp-data.tar.gz
 ```
 <!-- .element: class="fragment" -->
 
-configure makescript:
+configure & build:
 <!-- .element: class="fragment" -->
 
-```
-mkdir build && cd build
+```bash
 cmake ../src/biocpp
-```
-<!-- .element: class="fragment" -->
-
-build:
-<!-- .element: class="fragment" -->
-
-```
 make -j 4
 ```
 <!-- .element: class="fragment" -->
