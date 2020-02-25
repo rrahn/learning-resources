@@ -676,9 +676,12 @@ int main(int const argc, char const * argv[])
 { ... }
 ```
 
-* argc: The number of arguments passed to the program
-* argv: The arguments passed to the program as an array over c-style strings
-* program name is included and is accessed via argv[0]
+* <!-- .element: class="fragment" -->
+  argc: The number of arguments passed to the program
+* <!-- .element: class="fragment" -->
+  argv: The arguments passed to the program as an array over c-style strings
+* <!-- .element: class="fragment" -->
+  program name is included and is accessed via argv[0]
 
 <!-- Notes:
     argc >= 1
@@ -717,9 +720,12 @@ seqan3::sequence_file_input in{"path/to/my/file.fa"};
 seqan3::sequence_file_input ingz{"path/to/my/file.fa.gz"};
 ```
 
-* automatic format detection
-* transparent decompression
-* secure parsing
+* <!-- .element: class="fragment" -->
+  automatic format detection
+* <!-- .element: class="fragment" -->
+  transparent decompression
+* <!-- .element: class="fragment" -->
+  secure parsing
 </textarea>
 </section>
 
@@ -734,7 +740,8 @@ seqan3::sequence_file_output out{std::cout,
                                  seqan3::format_fasta{}};
 ```
 
-* format must be specified explicitly
+* <!-- .element: class="fragment" -->
+  format must be specified explicitly
 </textarea>
 </section>
 
