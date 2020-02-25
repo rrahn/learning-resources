@@ -182,50 +182,55 @@ make -j 4
 </ul>
 </section>
 
-<section>
-<h6>Introduction (I)</h6>
+<section data-markdown>
+<textarea data-template>
+###### Introduction (I)
 
-<ul>
-<li>C++ einordnen R / Python / C++</li>
-<li>community driven</li>
-<li>ISO standard</li>
-<li>everyone can propose changes</li>
-<li>we have contributed as well</li>
-<li>static type system</li>
-<li>functional / procdural / oop (not done in the course)</li>
-<li>imperative lanuage: for, if, sequential execution of steps</li>
-<li>No garbage collection</li>
-<li>generic programming (duck typing)</li>
-<li>compilation</li>
-<li>libraries</li>
-<li>Not afraid of new (allocation)</li>
-</ul>
+* C++ einordnen R / Python / C++
+* community driven
+* ISO standard
+* everyone can propose changes
+* we have contributed as well
+* static type system
+* functional / procdural / oop (not done in the course)
+* imperative lanuage: for, if, sequential execution of steps
+* No garbage collection
+* generic programming (duck typing)
+* compilation
+* libraries
+* Not afraid of new (allocation)
+</textarea>
 </section>
 
-<section>
-    <h3>I come from C/Java/Python/C#... How is C++ different?</h6>
+<section data-markdown>
+<textarea data-template>
+### I come from C/Java/Python/C#...
+
+How is C++ different?
+</textarea>
 </section>
 
-<section>
-    <div align="left"><h4>C++ is ...</h4></div>
-        <ul>
-        <li>object-oriented (Java, Python, C#)</li>
-        <li>structured (Java, Python, C#, C)</li>
-        <li>imperative (Java, Python, C#, C)</li>
-        <li>procedural (Python, C)</li>
-        <li>functional (Python, C, C#)</li>
-        <li>generic (Java, Python, C#, C)</li>
-        </ul>
+<section data-markdown>
+<textarea data-template>
+###### C++ is ...
+
+* object-oriented (Java, Python, C#)
+* structured (Java, Python, C#, C)
+* imperative (Java, Python, C#, C)
+* procedural (Python, C)
+* functional (Python, C, C#)
+* generic (Java, Python, C#, C)
+</textarea>
 </section>
 
-<section>
-    <div align="left"><h4>Object-oriented</h4></div>
-    <ul>
-        <li>Models the world as objects</li>
-        <li>Objects provide interface</li>
-        <li>Objects can interact with each other</li>
-        <li>Design patterns "Gang of Four" to reduce complexity</li>
-    </ul>
+<section data-markdown>
+<textarea data-template>
+###### Object-oriented
+* Models the world as objects
+* Objects provide interface
+* Objects can interact with each other
+* Design patterns "Gang of Four" to reduce complexity
+</textarea>
 </section>
 
 <section>
@@ -257,11 +262,13 @@ make -j 4
     <h3>Ok that's nice. But I learned that memory handling is difficult in C++.</h6>
 </section>
 
-<section>
-    <div align="left"><h4>Is that so?</h4></div>
-<pre><code>
-#include &lt;iostream&gt;
-#include &lt;vector&gt;
+<section data-markdown>
+<textarea data-template>
+###### Is that so?
+
+```cpp
+#include <iostream>;
+#include <vector>;
 
 int main()
 {
@@ -272,12 +279,13 @@ int main()
     std::cout << "\n";
     return 0;
 }
-</code></pre>
+```
 <!-- Notes
     Here 5 characters will be allocated and auto-magically will be deallocated.
     But where does it happen?
     We don't need to worry. The vector handles this for us.
 -->
+</textarea>
 </section>
 
 <section>
