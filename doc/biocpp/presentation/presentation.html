@@ -99,9 +99,8 @@
     <li class="fragment"><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
     <li class="fragment"><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
     <li class="fragment"><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-    <li class="fragment"><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
-    <li class="fragment"><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
-    <li class="fragment"><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
+    <li class="fragment"><span class='time-slot'>14:30 - 16:10</span> Extended quality filter <span class='small'>(view / concept)</span></li>
+    <li class="fragment"><span class='time-slot'>16:10 - 16:30</span> Evaluation & Wrap-Up Talk</li>
 </ul>
 </section>
 
@@ -114,22 +113,20 @@
     <li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
     <li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
     <li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-    <li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
-    <li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
-    <li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
+    <li><span class='time-slot'>14:30 - 16:10</span> Extended quality filter <span class='small'>(view / concept)</span></li>
+    <li><span class='time-slot'>16:10 - 16:30</span> Evaluation & Wrap-Up Talk</li>
 </ul>
 </section>
 
 <section>
 <h6>Setup (I):</h6>
-<pre class="fragment">Debian / Ubuntu:<code class="plaintext hljs">sudo apt-get install g++ cmake git</code></pre>
+<pre class="fragment">Debian / Ubuntu:<code class="plaintext hljs">sudo apt install g++ cmake git</code></pre>
 <pre class="fragment">Mac (XCode and Brew installed): <code class="plaintext hljs">brew install gcc</code></pre>
 <pre class="fragment">Windows: ... ( ͡° ͜ʖ ͡°)</pre>
 <pre class="fragment">Online Editor (50h/month for free, github or gitlab account):
 <code class="plaintext hljs" data-noescape><a href="https://gitpod.io/#https://github.com/rrahn/learning-resources">https://gitpod.io/#https://github.com/rrahn/learning-resources</a></code></pre>
 <pre class="fragment"><a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a> image:
-<code class="plaintext hljs" data-noescape>on USB flash drive or
-<a href="http://ftp.seqan.de/biocpp-vm.vdi">http://ftp.seqan.de/biocpp-vm.vdi</a></code></pre>
+<code class="plaintext hljs" data-noescape>on USB flash drive</code>or<code class="plaintext hljs" data-noescape><a href="http://ftp.seqan.de/workshop/2020/biocpp-vm.vdi">http://ftp.seqan.de/workshop/2020/biocpp-vm.vdi</a></code></pre>
 </section>
 
 <section data-markdown>
@@ -143,8 +140,9 @@ download course-material:
 git clone https://github.com/rrahn/learning-resources
 
 cd learning-resources
-
 git submodule update --init --recursive
+
+wget http://ftp.seqan.de/workshop/2020/biocpp-data.tar.gz
 ```
 <!-- .element: class="fragment" -->
 
@@ -176,9 +174,8 @@ make -j 4
     <li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
     <li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
     <li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-    <li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
-    <li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
-    <li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
+    <li><span class='time-slot'>14:30 - 16:10</span> Extended quality filter <span class='small'>(view / concept)</span></li>
+    <li><span class='time-slot'>16:10 - 16:30</span> Evaluation & Wrap-Up Talk</li>
 </ul>
 </section>
 
@@ -423,8 +420,8 @@ void print(std::vector<char> const & obj)
 #include <iostream>
 
 template <typename object_t>
-void print(object_t && obj)
-{
+void print(object_t && obj) // object_t can be
+{                           // std::vector<char>
     for (auto && c : obj)
         std::cout << c;
 
@@ -516,9 +513,8 @@ void print(std::ranges::input_range auto && obj)
     <li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
     <li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
     <li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-    <li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
-    <li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
-    <li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
+    <li><span class='time-slot'>14:30 - 16:10</span> Extended quality filter <span class='small'>(view / concept)</span></li>
+    <li><span class='time-slot'>16:10 - 16:30</span> Evaluation & Wrap-Up Talk</li>
 </ul>
 </section>
 
@@ -614,9 +610,8 @@ $ ./fastq2fasta data/input.fq data/output.fa
     <li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
     <li class="fragment highlight-blue grow"><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
     <li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-    <li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
-    <li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
-    <li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
+    <li><span class='time-slot'>14:30 - 16:10</span> Extended quality filter <span class='small'>(view / concept)</span></li>
+    <li><span class='time-slot'>16:10 - 16:30</span> Evaluation & Wrap-Up Talk</li>
 </ul>
 </section>
 
@@ -821,9 +816,8 @@ Consists of three main parts:
     <li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
     <li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
     <li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-    <li class="fragment highlight-blue grow"><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
-    <li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
-    <li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
+    <li class="fragment highlight-blue grow"><span class='time-slot'>14:30 - 16:10</span> Extended quality filter <span class='small'>(view / concept)</span></li>
+    <li><span class='time-slot'>16:10 - 16:30</span> Evaluation & Wrap-Up Talk</li>
 </ul>
 </section>
 
@@ -917,9 +911,8 @@ Extend the fastq2fasta program to handle paired-end reads.
     <li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
     <li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
     <li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-    <li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
-    <li class="fragment highlight-blue grow"><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
-    <li><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
+    <li><span class='time-slot'>14:30 - 16:10</span> Extended quality filter <span class='small'>(view / concept)</span></li>
+    <li class="fragment highlight-blue grow"><span class='time-slot'>16:10 - 16:30</span> Evaluation & Wrap-Up Talk</li>
 </ul>
 </section>
 
@@ -935,21 +928,6 @@ Extend the fastq2fasta program to handle paired-end reads.
   you can also fill it out online
   https://de.surveymonkey.com/r/denbi-course?sc=cibi&id=000255
 </script>
-</section>
-
-<section>
-<h3>Schedule<small>*</small>:</h3>
-<ul>
-    <li><span class='time-slot'>09:00 - 09:30</span> Setup</li>
-    <li><span class='time-slot'>09:30 - 10:00</span> Introduction Talk</li>
-    <li><span class='time-slot'>10:00 - 10:30</span> FASTQ -> FASTA conversion <span class='small'>(sequence files)</span></li>
-    <li><em class='time-slot'>10:30 - 10:45 Coffee-Break</em></li>
-    <li><span class='time-slot'>10:45 - 11:45</span> Simple quality filter <span class='small'>(range / lambda / tuple)</span></li>
-    <li><em class='time-slot'>11:45 - 14:30 "short break"</em></li>
-    <li><span class='time-slot'>14:30 - 15:50</span> Extended quality filter <span class='small'>(view / concept)</span></li>
-    <li><span class='time-slot'>15:50 - 16:00</span> Evaluation</li>
-    <li class="fragment highlight-blue grow"><span class='time-slot'>16:00 - 16:30</span> Wrap-Up Talk</li>
-</ul>
 </section>
 
             </div>
