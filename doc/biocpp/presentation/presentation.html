@@ -452,8 +452,8 @@ void print(std::vector<char> const & obj)
 #include <iostream>;
 
 template <typename object_t>;
-void print(object_t && obj)
-{
+void print(object_t && obj) // object_t can be
+{                           // std::vector<char>
     for (auto && c : obj)
         std::cout << c;
 
