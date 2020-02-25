@@ -339,6 +339,7 @@ int main()
   C, ... yeah well, that is another story
 
 **Control over memory is a key for performance!**
+<!-- .element: class="fragment" -->
 </textarea>
 </section>
 
@@ -650,46 +651,50 @@ $ ./fastq2fasta data/input.fq data/output.fa
 </section>
 
 <section>
-    <p class=live-coding>Live Demo</p>
-    <!-- Notes:
-        Start writing a simple program with hello world.
-        Learning goals:
-            * How to use Standard library functionality
-            * What does #include mean
-            * How to use standard library documentation: cppreference.com -> shared document.
-            * Entry point of any program -> the main
-            * String literal -> has to be the entry point of any program that captures command line arguments
-            * Convert to C++.
-            * Formatted files from SeqAn
-            * Writing a file to the standard output.
-    -->
+<p class=live-coding>Live Demo</p>
+
+<!-- Notes:
+    Start writing a simple program with hello world.
+    Learning goals:
+        * How to use Standard library functionality
+        * What does #include mean
+        * How to use standard library documentation: cppreference.com -> shared document.
+        * Entry point of any program -> the main
+        * String literal -> has to be the entry point of any program that captures command line arguments
+        * Convert to C++.
+        * Formatted files from SeqAn
+        * Writing a file to the standard output.
+-->
 </section>
 
-<section>
+<section data-markdown>
+<textarea data-template>
 Have a look at the main:
-<pre><code>
+
+```cpp
 int main(int const argc, char const * argv[])
 { ... }
-</code></pre>
-    <ul>
-        <li>argc: The number of arguments passed to the program</li>
-        <li>argv: The arguments passed to the program as an array over c-style strings</li>
-        <li>program name is included and is accessed via argv[0]</li>
-    </ul>
-    <!-- Notes:
-        argc >= 1
-        |argv| = argc + 1
-        argv[argc] == std::nullptr
-        argv[0] -> program name or std::nullptr if not supported by environment
-     -->
-    <!-- Task:
-        The following program: ./foo var1 var2 var3
-        What is the size of argc?
-        a) 3
-        b) 4
-        c) 5
-        d) 1
-    -->
+```
+
+* argc: The number of arguments passed to the program
+* argv: The arguments passed to the program as an array over c-style strings
+* program name is included and is accessed via argv[0]
+
+<!-- Notes:
+    argc >= 1
+    |argv| = argc + 1
+    argv[argc] == std::nullptr
+    argv[0] -> program name or std::nullptr if not supported by environment
+-->
+<!-- Task:
+    The following program: ./foo var1 var2 var3
+    What is the size of argc?
+    a) 3
+    b) 4
+    c) 5
+    d) 1
+-->
+</textarea>
 </section>
 
 <!-- In example of main reading command line arguments
@@ -699,34 +704,38 @@ int main(int const argc, char const * argv[])
         * Avoid working with pointer types (c-style string)
         * Avoid allocating memory
         * Avoid copying data -> non-owning semantics
- -->
+-->
 
-<section>
+<section data-markdown>
+<textarea data-template>
 Open files from path.
-<pre><code>
-#include &lt;seqan3/io/sequence_file/all.hpp&gt;
+
+```cpp
+#include <seqan3/io/sequence_file/all.hpp>;
 
 seqan3::sequence_file_input in{"path/to/my/file.fa"};
 seqan3::sequence_file_input ingz{"path/to/my/file.fa.gz"};
-</code></pre>
-    <ul>
-        <li>automatic format detection</li>
-        <li>transparent decompression</li>
-        <li>secure parsing</li>
-    </ul>
+```
+
+* automatic format detection
+* transparent decompression
+* secure parsing
+</textarea>
 </section>
 
-<section>
+<section data-markdown>
+<textarea data-template>
 Open files from stream.
-<pre><code>
-#include &lt;seqan3/io/sequence_file/all.hpp&gt;
+
+```cpp
+#include <seqan3/io/sequence_file/all.hpp>;
 
 seqan3::sequence_file_output out{std::cout,
                                  seqan3::format_fasta{}};
-</code></pre>
-    <ul>
-        <li>format must be specified explicitly</li>
-    </ul>
+```
+
+* format must be specified explicitly
+</textarea>
 </section>
 
 <section>
@@ -752,12 +761,11 @@ Extend the fastq2fasta program to only output reads with base qualities over a u
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-Read user input interactively
+  Read user input interactively
 * <!-- .element: class="fragment" -->
-Iterate over the fastq records
+  Iterate over the fastq records
 * <!-- .element: class="fragment" -->
-Write out fasta records with minimum quality criteria
-
+  Write out fasta records with minimum quality criteria
 </textarea>
 </section>
 
@@ -770,19 +778,19 @@ Learning objectives
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-What is a range
+  What is a range
 * <!-- .element: class="fragment" -->
-How to generically access elements of a range
+  How to generically access elements of a range
 * <!-- .element: class="fragment" -->
-Use a range-based for-loop
+  Use a range-based for-loop
 * <!-- .element: class="fragment" -->
-Use a range-based algorithms
+  Use a range-based algorithms
 * <!-- .element: class="fragment" -->
-Using auto specifier to deduce type automatically
+  Using auto specifier to deduce type automatically
 * <!-- .element: class="fragment" -->
-Work with tuples
+  Work with tuples
 * <!-- .element: class="fragment" -->
-Access fastq-file record-wise
+  Access fastq-file record-wise
 
 </textarea>
 </section>
@@ -791,15 +799,15 @@ Access fastq-file record-wise
 <textarea data-template>
 ###### Working with ranges
 
-What is a range
+What is a range?
 
 <img src="img/range.jpg">
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-range = pair of begin and end
+  range = pair of begin and end
 * <!-- .element: class="fragment" -->
-end must be reachable from begin
+  end must be reachable from begin
 
 </textarea>
 
@@ -826,15 +834,15 @@ Ranges in the STL
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-std::string_view, std::string
+  std::string_view, std::string
 * <!-- .element: class="fragment" -->
-std::vector, std::span
+  std::vector, std::span
 * <!-- .element: class="fragment" -->
-std::list, std::forward_list
+  std::list, std::forward_list
 * <!-- .element: class="fragment" -->
-std::map, std::set
+  std::map, std::set
 * <!-- .element: class="fragment" -->
-std::unordered_map, std::unordered_set
+  std::unordered_map, std::unordered_set
 
 </textarea>
 </section>
@@ -868,9 +876,9 @@ What does `auto &&` do?
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-Automatic type-deduction
+  Automatic type-deduction
 * <!-- .element: class="fragment" -->
-Automatic reference detection
+  Automatic reference detection
 
 </textarea>
 </section>
@@ -892,13 +900,13 @@ SeqAn3 files are ranges over tuples
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-A tuple is a static collection of objects of different types
+  A tuple is a static collection of objects of different types
 * <!-- .element: class="fragment" -->
-Access via special get interface
-    * <!-- .element: class="fragment" -->
+  Access via special get interface
+  * <!-- .element: class="fragment" -->
     via index:<br>
     `std::get<1>(std::tuple{"first", 2})`
-    * <!-- .element: class="fragment" -->
+  * <!-- .element: class="fragment" -->
     via type:<br>
     `std::get<int>(std::tuple{"first", 2})`
 
@@ -925,11 +933,11 @@ Consists of three main parts:
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-Capture block `[ ]`
+  Capture block `[ ]`
 * <!-- .element: class="fragment" -->
-Parameter block `( )`
+  Parameter block `( )`
 * <!-- .element: class="fragment" -->
-Function body `{ }`
+  Function body `{ }`
 
 </textarea>
 <!-- Notes:
@@ -960,11 +968,11 @@ Extend the fastq2fasta program to only output reads with a minimum average base 
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-
+  TODO??
 * <!-- .element: class="fragment" -->
-Iterate over the fastq records
+  Iterate over the fastq records
 * <!-- .element: class="fragment" -->
-Write out fasta records with minimum quality criteria
+  Write out fasta records with minimum quality criteria
 
 </textarea>
 </section>
@@ -974,17 +982,16 @@ Write out fasta records with minimum quality criteria
 ###### Working with views
 
 Learning objectives
-
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-What is a view
+  What is a view
 * <!-- .element: class="fragment" -->
-How to chain ranges/views
+  How to chain ranges/views
 * <!-- .element: class="fragment" -->
-Writing generic algorithms
+  Writing generic algorithms
 * <!-- .element: class="fragment" -->
-Understanding and using concepts in generic code
+  Understanding and using concepts in generic code
 
 </textarea>
 </section>
@@ -997,11 +1004,11 @@ Extend the fastq2fasta program to handle paired-end reads.
 <!-- .element: class="fragment" -->
 
 * <!-- .element: class="fragment" -->
-Read user input interactively
+  Read user input interactively
 * <!-- .element: class="fragment" -->
-Iterate over the fastq records
+  Iterate over the fastq records
 * <!-- .element: class="fragment" -->
-Write out fasta records with minimum quality criteria
+  Write out fasta records with minimum quality criteria
 
 </textarea>
 </section>
