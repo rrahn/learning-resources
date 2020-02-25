@@ -391,7 +391,7 @@ void print(std::vector&lt;char&gt; const & obj)
 template &lt;typename object_t&gt;
 void print(object_t && obj)
 {
-    for (auto c : obj)
+    for (auto && c : obj)
         std::cout << c;
 
     std::cout << "\n";
