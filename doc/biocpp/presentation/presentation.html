@@ -317,11 +317,11 @@ int main()
     return 0;
 }
 ```
-<!-- Notes
+<aside class='notes' data-markdown>
     Here 5 characters will be allocated and auto-magically will be deallocated.
     But where does it happen?
     We don't need to worry. The vector handles this for us.
--->
+</aside>
 </textarea>
 </section>
 
@@ -346,9 +346,9 @@ int main()
 <section data-markdown>
 <textarea data-template>
 ### But there are so many cool libraries that I can use with the other programming languages?
-<!-- Notes
+<aside class='notes' data-markdown>
 
--->
+</aside>
 </textarea>
 </section>
 
@@ -365,12 +365,12 @@ int main()
 * <!-- .element: class="fragment" -->
   ISO committee manages standardization
 
-<!-- Notes
+<aside class='notes' data-markdown>
     If something is not supported there is likely to be a library that does it already.
     STL is rich on features.
     We actually have submitted two small papers, that were accepted for C++20.
     The language and the library will be standardized by an ISO committee.
--->
+</aside>
 </textarea>
 </section>
 
@@ -378,12 +378,12 @@ int main()
 <textarea data-template>
 ### Mhmm, I see your point. But especially Python makes it so easy to work with dynamic types.
 
-<!-- Notes
+<aside class='notes' data-markdown>
     Good point.
     What I will not do here is to start a fundamental discussion about what would be the better option.
     At the end this is mainly a subjective matter and each approach has its pros and cons.
     But for the sake of completion let us compare the differences.
--->
+</aside>
 </textarea>
 </section>
 
@@ -398,9 +398,9 @@ int main()
 * <!-- .element: class="fragment" -->
   C++ allows compile time type-deduction.</li>
 
-<!-- Notes
+<aside class='notes' data-markdown>
     Let me in the following show you on some very simple code example the evolution of C++ regarding type deduction.
--->
+</aside>
 </textarea>
 </section>
 
@@ -421,10 +421,10 @@ int main()
 }
 ```
 
-<!-- Notes
+<aside class='notes' data-markdown>
     Remember our snippet from before. Here we created a vector of char and wanted to print the content.
     Now we want to extract the element-wise printing of the vector into a separate function.
--->
+</aside>
 </textarea>
 </section>
 
@@ -443,10 +443,10 @@ void print(std::vector<char> const & obj)
 }
 ```
 
-<!-- Notes
+<aside class='notes' data-markdown>
     This print function can now be used in the main and from other scopes to print a std::vector<char>.
     This is, however, cumbersome if we need to provide a print function for every type.
--->
+</aside>
 </textarea>
 </section>
 
@@ -465,10 +465,10 @@ void print(object_t && obj)
 }
 ```
 
-<!-- Notes
+<aside class='notes' data-markdown>
     Oh great! Now this code does work for any type.
     But, wait! What when we pass something that cannot be iterated?
--->
+</aside>
 </textarea>
 </section>
 
@@ -487,14 +487,14 @@ void print(std::ranges::input_range auto && obj)
 }
 ```
 
-<!-- Notes
+<aside class='notes' data-markdown>
     Wow, so you don't need to know anything about your type.
     The only thing I need to ensure is that the obj is an input_range (What ever that means).
     And that the elements of this type can be printed.
     The rest is auto-magically done by the compiler.
     If the types do not match the constraints the compiler will inform me about the wrong types.
     Note, that this is valid C++-20 code.
--->
+</aside>
 </textarea>
 </section>
 
@@ -505,11 +505,11 @@ void print(std::ranges::input_range auto && obj)
 <img src="img/c++_standardisation.jpg" height="450">
 <p class='small'>https://isocpp.org/std/status; accessed 23.02.2020</p>
 
-<!-- Notes
+<aside class='notes' data-markdown>
     In this course we will use modern C++ features available with C++20.
     We will incrementally build up a use case and learn the corresponding principles and how to use them
     to write efficient and expressive code.
--->
+</aside>
 </textarea>
 </section>
 
@@ -519,9 +519,9 @@ void print(std::ranges::input_range auto && obj)
 
 But why should I care when I can do all this with Python/Java/C#?
 
-<!-- Notes
+<aside class='notes' data-markdown>
     Performance.
--->
+</aside>
 </textarea>
 </section>
 
@@ -538,9 +538,9 @@ But why should I care when I can do all this with Python/Java/C#?
 * <!-- .element: class="fragment" -->
   TODO...
 
-<!-- Notes
+<aside class='notes' data-markdown>
     Performance.
--->
+</aside>
 </textarea>
 </section>
 
@@ -563,9 +563,9 @@ But why should I care when I can do all this with Python/Java/C#?
 * <!-- .element: class="fragment" -->
   understanding and using concepts in C++
 
-<!-- Notes
+<aside class='notes' data-markdown>
 
--->
+</aside>
 </textarea>
 </section>
 
@@ -653,7 +653,7 @@ $ ./fastq2fasta data/input.fq data/output.fa
 <section>
 <p class=live-coding>Live Demo</p>
 
-<!-- Notes:
+<aside class="notes" data-markdown>
     Start writing a simple program with hello world.
     Learning goals:
         * How to use Standard library functionality
@@ -664,7 +664,7 @@ $ ./fastq2fasta data/input.fq data/output.fa
         * Convert to C++.
         * Formatted files from SeqAn
         * Writing a file to the standard output.
--->
+</aside>
 </section>
 
 <section data-markdown>
@@ -683,20 +683,20 @@ int main(int const argc, char const * argv[])
 * <!-- .element: class="fragment" -->
   program name is included and is accessed via argv[0]
 
-<!-- Notes:
+<aside class="notes" data-markdown>
     argc >= 1
     |argv| = argc + 1
     argv[argc] == std::nullptr
     argv[0] -> program name or std::nullptr if not supported by environment
--->
-<!-- Task:
+
+Task:
     The following program: ./foo var1 var2 var3
     What is the size of argc?
     a) 3
     b) 4
     c) 5
     d) 1
--->
+</aside>
 </textarea>
 </section>
 
@@ -818,7 +818,7 @@ What is a range?
 
 </textarea>
 
-<!-- Notes:
+<aside class="notes" data-markdown>
     To answer the question of what a range is, let's have a closer look at our std::string_view.
     At the beginning we said we will use a string view to handle the data stored in a c-string, with the benefit of no extra memory allocation.
     But what else does it give us? Looking at the documentation we can see that string view offers two member functions called .begin() and .end().
@@ -830,7 +830,7 @@ What is a range?
     They hide the implementation of the data structure as well as the memory layout of the data and provide a unified access to the underlying elements. (Example?)
     All the STL algorithms are based on this paradigm as they operate on iterators and not on the specific range implementations.
     This brings many advantages, e.g. algorithms do not need to be implemented over and over again, reducing code complexity, improving maintainability and sustainability.
--->
+</aside>
 </section>
 
 <section data-markdown>
@@ -893,10 +893,10 @@ What does `auto &&` do?
 <section>
 <p class=live-coding>Live Demo</p>
 
-<!-- Notes:
+<aside class="notes" data-markdown>
     Adapt the code from above and use range-based for loop to iterate over elements of the file.
     Use get<1> to display the id to the standard output.
--->
+</aside>
 </section>
 
 <section data-markdown>
@@ -922,19 +922,19 @@ SeqAn3 files are ranges over tuples
     ```
 
 </textarea>
-<!-- Notes:
+<aside class="notes" data-markdown>
     In SeqAn we offer additional access via enum. seqan3::field::id.
- -->
+</aside>
 </section>
 
 <section>
 <p class=live-coding>Live Demo</p>
 
-<!-- Notes:
+<aside class="notes" data-markdown>
     Use field enum to print the id.
     Then access the quality.
     Write code that checks if there is any
--->
+</aside>
 </section>
 
 <section data-markdown>
@@ -952,9 +952,9 @@ Consists of three main parts:
   Function body `{ }`
 
 </textarea>
-<!-- Notes:
+<aside class="notes" data-markdown>
     In SeqAn we offer additional access via enum. seqan3::field::id.
-    -->
+</aside>
 </section>
 
 <section>
